@@ -1,72 +1,66 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "../../lib/utils";
+import React, { type ButtonHTMLAttributes } from "react";
+import { Loader2 } from "lucide-react";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-bold ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        primary: "bg-majorelle-blue text-indigo hover:bg-majorelle-blue/90",
-        accent: "bg-mango text-indigo hover:bg-mango/90",
-        secondary:
-          "bg-transparent border border-majorelle-blue text-majorelle-blue hover:bg-lavender",
-        tertiary: "bg-transparent text-majorelle-blue hover:bg-lavender",
-        "tertiary-warning": "bg-transparent text-jelly-bean hover:bg-pale-pink",
-        "tertiary-action":
-          "bg-transparent text-bleu-de-france hover:bg-alice-blue",
-        filter:
-          "bg-white text-primary border border-soft shadow-sm hover:bg-bg-secondary",
-      },
-      size: {
-        default: "h-11 px-4 py-2 text-B6",
-        sm: "h-9 rounded-md px-3 text-B7",
-        lg: "h-12 rounded-lg px-8 text-B5",
-        icon: "h-11 w-11",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "default",
-    },
-  }
-);
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?:
+    | "primary"
+    | "accent"
+    | "secondary"
+    | "tertiary"
+    | "tertiary-warning"
+    | "tertiary-action"
+    | "filters";
+  isLoading?: boolean;
+  fullWidth?: boolean;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant,
-      size,
-      asChild = false,
-      startIcon,
-      endIcon,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        {startIcon && <span className="mr-2">{startIcon}</span>}
-        {children}
-        {endIcon && <span className="ml-2">{endIcon}</span>}
-      </button>
-    );
-  }
-);
-Button.displayName = "Button";
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = "primary",
+  isLoading = false,
+  fullWidth = false,
+  leftIcon,
+  rightIcon,
+  className = "",
+  disabled,
+  ...props
+}) => {
+  const baseStyles =
+    "inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
 
-export { Button, buttonVariants };
+  const variants = {
+    primary: "bg-majorelle-blue text-[#fff] hover:bg-majorelle-blue/90",
+    accent: "bg-mango text-indigo hover:bg-mango/85",
+    secondary:
+      "border border-2 border-ocean-blue text-ocean-blue hover:bg-ocean-blue/20",
+    tertiary: "text-ocean-blue",
+    "tertiary-warning": "text-golden-gate-bridge",
+    "tertiary-action": "text-celtic-blue",
+    filters:
+      "border-2 border-azureish-white text-primary hover:bg-azureish-white/5",
+  };
+
+  const sizes = "px-6 py-3.5 text-base";
+
+  return (
+    <button
+      className={`
+        ${baseStyles}
+        ${variants[variant]}
+        ${sizes}
+        ${fullWidth ? "w-full" : ""}
+        ${isLoading ? "cursor-wait" : ""}
+        ${className}
+      `}
+      disabled={disabled || isLoading}
+      {...props}
+    >
+      {isLoading && <Loader2 className="w-5 h-5 mr-2 animate-spin" />}
+      {!isLoading && leftIcon && <span className="mr-2">{leftIcon}</span>}
+      {children}
+      {!isLoading && rightIcon && <span className="ml-2">{rightIcon}</span>}
+    </button>
+  );
+};

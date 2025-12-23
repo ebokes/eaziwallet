@@ -60,16 +60,15 @@ export default {
       tertiary: "var(--bg-tertiary)",
     },
 
-    textColor: {
-      primary: "var(--text-primary)",
-      secondary: "var(--text-secondary)",
-      brand: "var(--text-brand)",
-    },
-
-    borderColor: {
-      soft: "var(--border-soft)",
-    },
     extend: {
+      textColor: {
+        primary: "var(--text-primary)",
+        secondary: "var(--text-secondary)",
+        brand: "var(--text-brand)",
+      },
+      borderColor: {
+        soft: "var(--border-soft)",
+      },
       fontSize: {
         // B1 & R1 - 36px
         B1: ["2.25rem", { fontWeight: "700" }],

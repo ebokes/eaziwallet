@@ -1,4 +1,3 @@
-// src/app/routes/index.tsx
 import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
