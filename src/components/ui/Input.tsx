@@ -31,7 +31,7 @@ export const Input: React.FC<InputProps> = ({
         <input
           type={isPassword ? (showPassword ? "text" : "password") : type}
           className={`
-            w-full px-4 py-3 rounded-xl border bg-gray-50 text-text-primary
+            w-full px-4 py-3 rounded-md border border-azureish-white bg-gray-50 text-text-primary
             transition-colors duration-200 focus:outline-none focus:ring-2
             ${
               error
