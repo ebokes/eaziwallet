@@ -1,12 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 #root {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  /* text-align: center; */
 }
 
+@layer base {
+  :root {
+    --bg-primary: #ffffff; 
+    --bg-secondary: #f7f8fe; 
+    --bg-tertiary: #edeff6; 
+
+    --text-primary: #191919; 
+    --text-secondary: #535d66; 
+    --text-brand: #3b85f3; 
+
+    --border-soft: #e1e3ed; 
+
+
+  }
+
+  .dark {
+    --bg-primary: #191919; 
+    --bg-secondary: #1f1f1f; 
+    --bg-tertiary: #535d66; 
+
+    --text-primary: #ffffff; 
+    --text-secondary: #bac2c7; 
+    --text-brand: #3b85f3; 
+
+    --border-soft: #535d66; 
+  }
+}
+
+body {
+  font-family: "Sora", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
