@@ -194,8 +194,8 @@ const Login: React.FC = () => {
                   Don't have an account?{" "}
                 </span>
                 <Link
-                  to="/register"
-                  className="font-bold text-primary hover:underline"
+                  to="/sign-up"
+                  className="font-bold text-celtic hover:underline"
                 >
                   Sign up
                 </Link>

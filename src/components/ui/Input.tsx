@@ -24,7 +24,7 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className={`${fullWidth ? "w-full" : ""} ${className}`}>
-      <label className="block text-sm font-medium text-text-secondary mb-1.5">
+      <label className="block text-sm text-text-secondary mb-1.5">
         {label}
       </label>
       <div className="relative">
@@ -47,7 +47,7 @@ export const Input: React.FC<InputProps> = ({
             onClick={togglePasswordVisibility}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
           >
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
           </button>
         )}
       </div>
