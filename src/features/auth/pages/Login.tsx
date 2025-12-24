@@ -1,33 +1,57 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckSquare, Square, ArrowLeft, ChevronLeft } from "lucide-react";
-import { Button } from "../../../components/ui/Button";
-import { Input } from "../../../components/ui/Input";
-import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
+import { ChevronLeft } from "lucide-react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import Mobile from "../../../assets/auth/mobile-phone.png";
 import Secure from "../../../assets/auth/secure.png";
+import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
 import SocialIcons from "../../../components/auth/SocialIcons";
-import { loginSchema, type LoginSchema } from "../schemas/loginSchema";
+import { Button } from "../../../components/ui/Button";
+import { Input } from "../../../components/ui/Input";
+import { ResponsiveModal } from "../../../components/ui/ResponsiveModal";
+import {
+  forgotPasswordSchema,
+  loginSchema,
+  type ForgotPasswordSchema,
+  type LoginSchema,
+} from "../schemas/loginSchema";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState<"phone" | "password">("phone");
   const [isLoading, setIsLoading] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
+  const [resetMethod, setResetMethod] = useState<"email" | "mobile">("email");
 
   const {
     register,
     handleSubmit,
     trigger,
-    setValue,
-    watch,
+    // setValue,
+    // watch,
     formState: { errors },
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       phone: "",
       password: "",
+    },
+    mode: "onChange",
+  });
+
+  const {
+    register: registerForgot,
+    handleSubmit: handleSubmitForgot,
+    formState: { errors: errorsForgot },
+    setValue: setValueForgot,
+    clearErrors: clearErrorsForgot,
+  } = useForm<ForgotPasswordSchema>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: {
+      method: "email",
+      email: "",
+      mobile: "",
     },
     mode: "onChange",
   });
@@ -51,6 +75,19 @@ const Login: React.FC = () => {
       setIsLoading(false);
       navigate("/dashboard");
     }, 1500);
+  };
+
+  const handleForgotPasswordSubmit = (data: ForgotPasswordSchema) => {
+    console.log("Forgot Password Data:", data);
+    // Handle reset logic
+    setIsForgotPasswordOpen(false);
+  };
+
+  const toggleResetMethod = () => {
+    const newMethod = resetMethod === "email" ? "mobile" : "email";
+    setResetMethod(newMethod);
+    setValueForgot("method", newMethod);
+    clearErrorsForgot();
   };
   return (
     <div className="flex flex-col md:flex-row items-center w-full justify-center h-screen">
@@ -135,6 +172,7 @@ const Login: React.FC = () => {
                     <button
                       type="button"
                       className="text-sm font-bold text-celtic-blue hover:underline"
+                      onClick={() => setIsForgotPasswordOpen(true)}
                     >
                       Forgot Password?
                     </button>
@@ -164,6 +202,51 @@ const Login: React.FC = () => {
               </div>
             )}
           </form>
+          {/* Forgot Password Modal */}
+          <ResponsiveModal
+            isOpen={isForgotPasswordOpen}
+            onClose={() => setIsForgotPasswordOpen(false)}
+            title="Forgot your Password?"
+          >
+            <div className="space-y-6">
+              <form
+                onSubmit={handleSubmitForgot(handleForgotPasswordSubmit)}
+                className="space-y-4"
+              >
+                {resetMethod === "email" ? (
+                  <Input
+                    label="Email"
+                    placeholder="e.g. email@example.com"
+                    type="email"
+                    {...registerForgot("email")}
+                    error={errorsForgot.email?.message}
+                  />
+                ) : (
+                  <Input
+                    label="Mobile Number"
+                    placeholder="e.g. +1 234 567 890"
+                    type="tel"
+                    {...registerForgot("mobile")}
+                    error={errorsForgot.mobile?.message}
+                  />
+                )}
+
+                <Button type="submit" fullWidth>
+                  Send Reset Link
+                </Button>
+              </form>
+
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={toggleResetMethod}
+                  className="text-sm font-bold text-primary hover:underline"
+                >
+                  Use {resetMethod === "email" ? "mobile" : "email"} instead
+                </button>
+              </div>
+            </div>
+          </ResponsiveModal>
         </div>
       </div>
     </div>

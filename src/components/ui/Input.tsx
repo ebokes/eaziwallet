@@ -35,7 +35,7 @@ export const Input: React.FC<InputProps> = ({
             transition-colors duration-200 focus:outline-none focus:ring-2
             ${
               error
-                ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+                ? "border-golden-gate-bridge focus:border-golden-gate-bridge focus:ring-golden-gate-bridge/70"
                 : "border-gray-200 focus:border-primary focus:ring-primary/20 hover:border-gray-300"
             }
           `}
@@ -51,7 +51,7 @@ export const Input: React.FC<InputProps> = ({
           </button>
         )}
       </div>
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1 text-xs text-golden-gate-bridge">{error}</p>}
     </div>
   );
 };
