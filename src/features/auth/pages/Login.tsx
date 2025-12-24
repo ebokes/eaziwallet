@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckSquare, Square, ArrowLeft } from "lucide-react";
+import { CheckSquare, Square, ArrowLeft, ChevronLeft } from "lucide-react";
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
 import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
-import Mobile from "../../../assets/auth/mobile-phone.webp";
+import Mobile from "../../../assets/auth/mobile-phone.png";
+import Secure from "../../../assets/auth/secure.png";
 import SocialIcons from "../../../components/auth/SocialIcons";
 import { loginSchema, type LoginSchema } from "../schemas/loginSchema";
 
@@ -27,12 +28,9 @@ const Login: React.FC = () => {
     defaultValues: {
       phone: "",
       password: "",
-      rememberMe: false,
     },
     mode: "onChange",
   });
-
-  const rememberMe = watch("rememberMe");
 
   const handleContinue = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,99 +52,119 @@ const Login: React.FC = () => {
       navigate("/dashboard");
     }, 1500);
   };
-
   return (
     <div className="flex flex-col md:flex-row items-center w-full justify-center h-screen">
-      <div className="bg-lavender/70 w-full md:w-1/2 h-full grid place-items-center">
+      <div className="bg-lavender/70 w-full md:w-1/2 h-1/2 md:h-full grid place-items-center">
+        <div className="w-full md:hidden ml-4 gap-2 mt-2 text-celtic-blue font-medium">
+          <button
+            type="button"
+            onClick={() => setStep("phone")}
+            className="flex items-center text-sm text-text-secondary hover:text-primary transition-colors"
+          >
+            <ChevronLeft size={16} className="mr-1 flex justify-self-start" />{" "}
+            Back
+          </button>
+        </div>
         <div className="flex flex-col items-center">
-          <img src={TapNPayLogo} alt="TapNPay Logo" className="w-20 mb-10" />
-          <img src={Mobile} alt="Mobile" className="w-[200px] md:w-[400px]" />
+          <div className="flex justify-center mb-10">
+            <img
+              src={TapNPayLogo}
+              alt="TapNPay Logo"
+              className="w-20 md:w-32"
+            />
+          </div>
+          {step === "password" ? (
+            <img
+              src={Secure}
+              alt="shield"
+              className="w-[200px] md:w-[300px] "
+            />
+          ) : (
+            <img
+              src={Mobile}
+              alt="Mobile"
+              className="w-[200px] md:w-[300px] lg:w-[400px]"
+            />
+          )}
         </div>
       </div>
-      <div className="w-[90%] md:w-1/2 m-8">
-        <h1 className="text-S3 w-[170px] md:w-full mb-6">
-          Enter your mobile number
-        </h1>
-        <form
-          onSubmit={step === "phone" ? handleContinue : handleSubmit(onSubmit)}
-          className="space-y-6"
-        >
-          {step === "phone" && (
-            <div className="animate-fade-in">
-              <Input
-                label="Mobile Number"
-                placeholder="e.g. 08012345678"
-                type="tel"
-                {...register("phone")}
-                error={errors.phone?.message}
-              />
-              <div className="mt-6">
-                <Button type="submit" fullWidth isLoading={isLoading}>
-                  Continue
-                </Button>
-              </div>
-            </div>
+      <div className="flex justify-center w-full md:w-1/2 h-1/2 md:h-auto m-8">
+        <div className="w-full mx-4 md:mx-10 max-w-[600px]">
+          {step === "password" ? (
+            <h1 className="text-S3 mb-6">Enter your password</h1>
+          ) : (
+            <h1 className="text-S3 w-[170px] md:w-full mb-6">
+              Enter your mobile number
+            </h1>
           )}
-
-          {step === "password" && (
-            <div className="animate-slide-up space-y-6">
-              <div className="flex items-center gap-2 mb-4 -mt-2">
-                <button
-                  type="button"
-                  onClick={() => setStep("phone")}
-                  className="flex items-center text-sm text-text-secondary hover:text-primary transition-colors"
-                >
-                  <ArrowLeft size={16} className="mr-1" /> Change Number
-                </button>
+          <form
+            onSubmit={
+              step === "phone" ? handleContinue : handleSubmit(onSubmit)
+            }
+            className="space-y-6"
+          >
+            {step === "phone" && (
+              <div className="animate-fade-in">
+                <Input
+                  label="Mobile Number"
+                  placeholder="e.g. 08012345678"
+                  type="tel"
+                  {...register("phone")}
+                  error={errors.phone?.message}
+                />
+                <div className="mt-6">
+                  <Button type="submit" fullWidth isLoading={isLoading}>
+                    Continue
+                  </Button>
+                </div>
               </div>
+            )}
 
-              <Input
-                label="Password"
-                type="password"
-                placeholder="Enter your password"
-                {...register("password")}
-                error={errors.password?.message}
-              />
+            {step === "password" && (
+              <div className="animate-slide-up space-y-6">
+                <div className="">
+                  <Input
+                    label="Password"
+                    type="password"
+                    placeholder="Enter your password"
+                    {...register("password")}
+                    error={errors.password?.message}
+                  />
 
-              <div className="flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => setValue("rememberMe", !rememberMe)}
-                  className="flex items-center gap-2 text-sm text-text-secondary cursor-pointer"
-                >
-                  {rememberMe ? (
-                    <CheckSquare size={18} className="text-primary" />
-                  ) : (
-                    <Square size={18} className="text-gray-400" />
-                  )}
-                  Remember me
-                </button>
-                <button
-                  type="button"
-                  className="text-sm font-bold text-primary hover:underline"
-                >
-                  Forgot Password?
-                </button>
+                  <div className="flex items-center justify-end w-full mt-4">
+                    <button
+                      type="button"
+                      className="text-sm font-bold text-celtic-blue hover:underline"
+                    >
+                      Forgot Password?
+                    </button>
+                  </div>
+                </div>
+                <div className="self-end">
+                  <Button type="submit" fullWidth isLoading={isLoading}>
+                    Login
+                  </Button>
+                </div>
               </div>
+            )}
 
-              <Button type="submit" fullWidth isLoading={isLoading}>
-                Sign In
-              </Button>
-            </div>
-          )}
+            {step === "phone" && <SocialIcons />}
 
-          {step === "phone" && <SocialIcons />}
-
-          <div className="text-center text-sm">
-            <span className="text-text-secondary">Don't have an account? </span>
-            <Link
-              to="/register"
-              className="font-bold text-primary hover:underline"
-            >
-              Sign up
-            </Link>
-          </div>
-        </form>
+            {step === "phone" && (
+              <div className="text-center text-sm">
+                <span className="text-text-secondary">
+                  Don't have an account?{" "}
+                </span>
+                <Link
+                  to="/register"
+                  className="font-bold text-primary hover:underline"
+                >
+                  Sign up
+                </Link>
+              </div>
+            )}
+          </form>
+        </div>
       </div>
     </div>
   );
