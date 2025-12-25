@@ -2,7 +2,7 @@ import React, { type InputHTMLAttributes } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   error?: string;
   fullWidth?: boolean;
 }

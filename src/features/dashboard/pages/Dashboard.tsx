@@ -1,24 +1,21 @@
+import { Plus, Settings } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import {
-  Settings,
-  ArrowUpFromLine,
-  ArrowDownToLine,
-  RefreshCw,
-  Plus,
-} from "lucide-react";
-import { TransactionList } from "../../../components/dashboard/TransactionList";
-import Avartar from "../../../assets/dashboard/ali.png"; // Placeholder for the avatar in the image
-import Avartar1 from "../../../assets/dashboard/ali.png";
-import Avartar2 from "../../../assets/dashboard/steve.png";
 import Avartar3 from "../../../assets/dashboard/ahmed.png";
-import BalanceCard from "../../../components/dashboard/BalanceCard";
+import {
+  default as Avartar,
+  default as Avartar1,
+} from "../../../assets/dashboard/ali.png"; // Placeholder for the avatar in the image
+import Avartar2 from "../../../assets/dashboard/steve.png";
+import BalanceCard from "../../../components/dashboard/home/BalanceCard";
+import { TransactionList } from "../../../components/dashboard/home/TransactionList";
+import { Settings3Line } from "../../../components/icons/Icons";
 
 // Mock Data for Transfers
 const RECENT_TRANSFERS = [
   { id: "1", name: "Ali", image: Avartar1 },
   { id: "2", name: "Steve", image: Avartar2 },
   { id: "3", name: "Ahmed", image: Avartar3 },
-  //   { id: "4", name: "Maria", image: Avartar }, // Reuse for now
+  { id: "4", name: "Maria", image: Avartar1 }, // Reuse for now
 ];
 
 const Dashboard: React.FC = () => {
@@ -72,7 +69,7 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
           <button className="p-2 text-white/90 hover:bg-white/10 rounded-full transition-colors">
-            <Settings size={24} />
+            <Settings3Line className="hover:rotate-180 transition-transform duration-500" />
           </button>
         </div>
 
@@ -80,9 +77,9 @@ const Dashboard: React.FC = () => {
       </div>
 
       {/* Bottom Section (White Background) */}
-      <div className="flex-1 bg-white -mt-6 px-6 pt-8 pb-24 lg:px-8 lg:pt-12 lg:flex lg:gap-12 lg:items-start">
+      <div className="flex-1 bg-white -mt-6 px-4 pt-8 pb-24 lg:px-8 lg:pt-12 lg:flex lg:gap-12 lg:items-start">
         {/* Recent Transfers */}
-        <div className="mb-0 p-2 pb-6 lg:w-1/3 lg:border-r lg:border-gray-100 lg:pr-8">
+        <div className="mb-0 py-2 pb-6 lg:w-1/3 lg:border-r lg:border-gray-100 lg:pr-8">
           <h3 className="font-bold text-text-primary mb-4">Recent Transfers</h3>
           <div className="flex gap-6 overflow-x-auto pb-2 no-scrollbar lg:flex-wrap">
             {/* Add Button */}

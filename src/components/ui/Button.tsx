@@ -9,7 +9,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | "tertiary"
     | "tertiary-warning"
     | "tertiary-action"
-    | "filters";
+    | "filters" 
+    | "ghost";
   isLoading?: boolean;
   fullWidth?: boolean;
   leftIcon?: React.ReactNode;
@@ -28,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
 
   const variants = {
     primary: "bg-majorelle-blue text-[#fff] hover:bg-majorelle-blue/90",
@@ -40,6 +41,8 @@ export const Button: React.FC<ButtonProps> = ({
     "tertiary-action": "text-celtic-blue",
     filters:
       "border-2 border-azureish-white text-primary hover:bg-azureish-white/5",
+     ghost:
+      "",
   };
 
   const sizes = "px-6 py-3.5 text-base";

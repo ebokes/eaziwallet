@@ -4,14 +4,16 @@ interface ResponsiveModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
-  title?: string;
+  title?: string | React.ReactNode;
+  bold?: boolean;
 }
 
 export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
   isOpen,
   onClose,
   children,
-  title,
+    title,
+  bold = true,
 }) => {
   if (!isOpen) return null;
 
@@ -32,7 +34,7 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
         <div className="flex items-center justify-between mb-6">
           <div className=" md:hidden"></div>{" "}
           {title && (
-            <h3 className="text-xl font-bold text-text-primary flex-1 md:text-left md:flex-auto">
+            <h3 className={`text-xl ${bold ? "font-bold" : "font-normal"} font-bold text-text-primary flex-1 md:text-left md:flex-auto"`}>
               {title}
             </h3>
           )}
