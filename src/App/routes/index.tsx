@@ -14,6 +14,10 @@ const More = lazy(() => import("../../features/dashboard/pages/More"));
 const Cards = lazy(() => import("../../features/dashboard/pages/Cards"));
 const About = lazy(() => import("../../features/dashboard/pages/About"));
 const Profile = lazy(() => import("../../features/dashboard/pages/Profile"));
+const PayBills = lazy(() => import("../../features/dashboard/pages/PayBills"));
+const PaymentSuccess = lazy(
+  () => import("../../features/dashboard/pages/PaymentSuccess")
+);
 
 export default function AppRoutes() {
   return (
@@ -34,6 +38,8 @@ export default function AppRoutes() {
         {/* Pages without bottom nav */}
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/pay-bills" element={<PayBills />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

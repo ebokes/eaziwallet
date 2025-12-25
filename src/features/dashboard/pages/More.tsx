@@ -9,7 +9,7 @@ import {
   LightbulbFlashLine,
   PieChart2Line,
   QuestionLine,
-  UploadLine
+  UploadLine,
 } from "../../../components/icons/Icons";
 
 interface MenuItem {
@@ -31,6 +31,7 @@ const More: React.FC = () => {
       icon: <LightbulbFlashLine className="w-6 h-6" />,
       bgColor: "bg-lavender",
       textColor: "text-ocean-blue",
+      onClick: () => navigate("/pay-bills"),
     },
     {
       id: "transfer",
