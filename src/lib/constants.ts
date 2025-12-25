@@ -17,6 +17,7 @@ export interface Card {
   variant: "primary" | "secondary" | "dark";
 }
 
+
 export interface Transaction {
   id: string;
   type: "sent" | "received";
@@ -157,3 +158,4 @@ export const INITIAL_CARDS: Card[] = [
     variant: "dark",
   },
 ];
+
