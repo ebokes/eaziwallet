@@ -39,6 +39,7 @@ const More: React.FC = () => {
       icon: <ExchangeFundsLine className="w-6 h-6" />,
       bgColor: "bg-cloud",
       textColor: "text-celtic-blue",
+      onClick: () => navigate("/transfer"),
     },
     {
       id: "topup",

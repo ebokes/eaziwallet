@@ -18,6 +18,16 @@ const PayBills = lazy(() => import("../../features/dashboard/pages/PayBills"));
 const PaymentSuccess = lazy(
   () => import("../../features/dashboard/pages/PaymentSuccess")
 );
+const Transfer = lazy(() => import("../../features/dashboard/pages/Transfer"));
+const TransferAmount = lazy(
+  () => import("../../features/dashboard/pages/TransferAmount")
+);
+const TransferConfirmation = lazy(
+  () => import("../../features/dashboard/pages/TransferConfirmation")
+);
+const TransferFailed = lazy(
+  () => import("../../features/dashboard/pages/TransferFailed")
+);
 
 export default function AppRoutes() {
   return (
@@ -40,6 +50,13 @@ export default function AppRoutes() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/pay-bills" element={<PayBills />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/transfer" element={<Transfer />} />
+        <Route path="/transfer-amount" element={<TransferAmount />} />
+        <Route
+          path="/transfer-confirmation"
+          element={<TransferConfirmation />}
+        />
+        <Route path="/transfer-failed" element={<TransferFailed />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
