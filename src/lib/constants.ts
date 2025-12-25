@@ -8,6 +8,15 @@ import ali from "../assets/dashboard/ali.png";
 import apple from "../assets/dashboard/Apple.png";
 import { getMockDate } from "./utils";
 
+export interface Card {
+  id: number;
+  name: string;
+  cardNumber: string;
+  expiry: string;
+  balance: string;
+  variant: "primary" | "secondary" | "dark";
+}
+
 export interface Transaction {
   id: string;
   type: "sent" | "received";
@@ -119,5 +128,32 @@ export const MOCK_TRANSACTIONS: Transaction[] = [
     date: getMockDate(10, 11, 20),
     status: "completed",
     transactionNo: "23010412432431",
+  },
+];
+
+export const INITIAL_CARDS: Card[] = [
+  {
+    id: 1,
+    name: "Abdullah Ghatasheh",
+    cardNumber: "1234567890123245",
+    expiry: "12/24",
+    balance: "2,354",
+    variant: "primary",
+  },
+  {
+    id: 2,
+    name: "Abdullah Ghatasheh",
+    cardNumber: "9876543210987654",
+    expiry: "09/25",
+    balance: "5,120",
+    variant: "secondary",
+  },
+  {
+    id: 3,
+    name: "Abdullah Ghatasheh",
+    cardNumber: "4561237894561234",
+    expiry: "11/26",
+    balance: "1,200",
+    variant: "dark",
   },
 ];
