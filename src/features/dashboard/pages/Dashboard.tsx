@@ -1,4 +1,4 @@
-import { Plus, Settings } from "lucide-react";
+import { Plus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Avartar3 from "../../../assets/dashboard/ahmed.png";
 import {
@@ -8,7 +8,11 @@ import {
 import Avartar2 from "../../../assets/dashboard/steve.png";
 import BalanceCard from "../../../components/dashboard/home/BalanceCard";
 import { TransactionList } from "../../../components/dashboard/home/TransactionList";
+import TransactionModal from "../../../components/dashboard/TransactionModal";
 import { Settings3Line } from "../../../components/icons/Icons";
+import { Button } from "../../../components/ui/Button";
+import { MOCK_TRANSACTIONS, type Transaction } from "../../../lib/constants";
+import { formatCurrency } from "../../../lib/utils";
 
 // Mock Data for Transfers
 const RECENT_TRANSFERS = [
@@ -21,6 +25,9 @@ const RECENT_TRANSFERS = [
 const Dashboard: React.FC = () => {
   const [balance, setBalance] = useState(0);
   const targetBalance = 14235.34;
+  const [selectedTransaction, setSelectedTransaction] =
+    useState<Transaction | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     let start = 0;
@@ -42,11 +49,9 @@ const Dashboard: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(value);
+  const handleTransactionClick = (transaction: Transaction) => {
+    setSelectedTransaction(transaction);
+    setIsModalOpen(true);
   };
 
   return (
@@ -111,10 +116,27 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Latest Transactions */}
-        <div className="mt-2 lg:mt-0 lg:flex-1">
-          <TransactionList />
+        <div className="mt-2 lg:mt-0 lg:flex-1 space-y-4">
+          <div className="flex gap-4 items-center justify-between">
+            <h2 className="text-xl font-bold text-text-primary">
+              Transactions
+            </h2>
+            <Button variant="ghost" className="text-[#6B6B6B]">
+              View all
+            </Button>
+          </div>
+          <TransactionList
+            transactions={MOCK_TRANSACTIONS}
+            onTransactionClick={handleTransactionClick}
+          />
         </div>
       </div>
+
+      <TransactionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        selectedTransaction={selectedTransaction}
+      />
     </div>
   );
 };

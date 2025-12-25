@@ -5,6 +5,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
   fullWidth?: boolean;
+  leftIcon?: React.ReactNode;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -13,6 +14,7 @@ export const Input: React.FC<InputProps> = ({
   fullWidth = true,
   type = "text",
   className = "",
+  leftIcon,
   ...props
 }) => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -24,15 +26,23 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className={`${fullWidth ? "w-full" : ""} ${className}`}>
-      <label className="block text-sm text-text-secondary mb-1.5">
-        {label}
-      </label>
+      {label && (
+        <label className="block text-sm text-text-secondary mb-1.5">
+          {label}
+        </label>
+      )}
       <div className="relative">
+        {leftIcon && (
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            {leftIcon}
+          </div>
+        )}
         <input
           type={isPassword ? (showPassword ? "text" : "password") : type}
           className={`
             w-full px-4 py-3 rounded-md border border-azureish-white bg-gray-50 text-text-primary
             transition-colors duration-200 focus:outline-none focus:ring-2
+            ${leftIcon ? "pl-10" : ""}
             ${
               error
                 ? "border-golden-gate-bridge focus:border-golden-gate-bridge focus:ring-golden-gate-bridge/70"
