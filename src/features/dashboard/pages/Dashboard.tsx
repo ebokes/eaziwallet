@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Avartar3 from "../../../assets/dashboard/ahmed.png";
 import {
   default as Avartar,
@@ -23,6 +24,7 @@ const RECENT_TRANSFERS = [
 ];
 
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate();
   const [balance, setBalance] = useState(0);
   const targetBalance = 14235.34;
   const [selectedTransaction, setSelectedTransaction] =
@@ -73,7 +75,10 @@ const Dashboard: React.FC = () => {
               <h1 className="text-R3">Abdullah!</h1>
             </div>
           </div>
-          <button className="p-2 text-white/90 hover:bg-white/10 rounded-full transition-colors">
+          <button
+            onClick={() => navigate("/profile")}
+            className="p-2 text-white/90 hover:bg-white/10 rounded-full transition-colors"
+          >
             <Settings3Line className="hover:rotate-180 transition-transform duration-500" />
           </button>
         </div>

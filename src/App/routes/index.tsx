@@ -13,6 +13,7 @@ const History = lazy(() => import("../../features/dashboard/pages/History"));
 const More = lazy(() => import("../../features/dashboard/pages/More"));
 const Cards = lazy(() => import("../../features/dashboard/pages/Cards"));
 const About = lazy(() => import("../../features/dashboard/pages/About"));
+const Profile = lazy(() => import("../../features/dashboard/pages/Profile"));
 
 export default function AppRoutes() {
   return (
@@ -32,6 +33,7 @@ export default function AppRoutes() {
         </Route>
         {/* Pages without bottom nav */}
         <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
