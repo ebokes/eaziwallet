@@ -66,13 +66,13 @@ const OTPVerification: React.FC = () => {
       <div className="flex-1 flex flex-col items-center px-4 mt-8">
         {/* Info Box */}
         <div className="w-full max-w-sm bg-blue-50p-3 text-center mb-10">
-          <p className="text-sm font-semibold text-text-primary">
+          <p className="text-B6 text-text-primary">
             An SMS sent to your mobile number
           </p>
-          <p className="text-sm font-bold text-text-primary">{phoneNumber}</p>
+          <p className="text-B6 text-text-primary">{phoneNumber}</p>
         </div>
 
-        <h3 className="text-text-secondary text-sm mb-4">
+        <h3 className="text-text-secondary text-R7 mb-4">
           Enter six-digit code
         </h3>
 
@@ -96,9 +96,9 @@ const OTPVerification: React.FC = () => {
           />
 
           <div className="mt-8 mb-auto">
-            <p className="text-sm text-text-secondary font-medium mb-6">
+            <p className="text-R7 text-text-secondary mb-6">
               Resend code{" "}
-              <span className="text-text-primary ml-1">
+              <span className="text-text-primary text-R6 ml-1">
                 {formatTime(timer)}
               </span>
             </p>

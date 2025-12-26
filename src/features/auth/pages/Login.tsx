@@ -90,17 +90,17 @@ const Login: React.FC = () => {
     clearErrorsForgot();
   };
   return (
-    <div className="flex flex-col md:flex-row items-center w-full justify-center h-screen">
+    <div className="flex flex-col md:flex-row items-center w-full justify-center h-screen overflow-hidden">
       <div className="bg-lavender/70 w-full md:w-1/2 h-1/2 md:h-full grid place-items-center">
         <div className="w-full md:hidden ml-4 gap-2 mt-2 text-celtic-blue font-medium">
-          <button
+          {/* <button
             type="button"
             onClick={() => setStep("phone")}
             className="flex items-center text-sm text-text-secondary hover:text-primary transition-colors"
           >
             <ChevronLeft size={16} className="mr-1 flex justify-self-start" />{" "}
             Back
-          </button>
+          </button> */}
         </div>
         <div className="flex flex-col items-center">
           <div className="flex justify-center mb-10">
@@ -143,7 +143,7 @@ const Login: React.FC = () => {
             {step === "phone" && (
               <div className="animate-fade-in">
                 <Input
-                  label="Mobile Number"
+                  label="Mobile number"
                   placeholder="e.g. 08012345678"
                   type="tel"
                   {...register("phone")}
@@ -195,7 +195,7 @@ const Login: React.FC = () => {
                 </span>
                 <Link
                   to="/sign-up"
-                  className="font-bold text-celtic hover:underline"
+                  className="font-bold text-celtic-blue hover:underline"
                 >
                   Sign up
                 </Link>
@@ -237,16 +237,16 @@ const Login: React.FC = () => {
               </form>
 
               <div className="text-center">
-                <button
-                  type="button"
+                <Button variant="ghost" size="xs"
                   onClick={toggleResetMethod}
-                  className="text-sm font-bold text-primary hover:underline"
+                  className="text-B6 text-celtic-blue"
                 >
                   Use {resetMethod === "email" ? "mobile" : "email"} instead
-                </button>
+                </Button>
               </div>
             </div>
           </ResponsiveModal>
+         
         </div>
       </div>
     </div>

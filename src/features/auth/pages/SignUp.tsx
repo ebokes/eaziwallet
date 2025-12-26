@@ -54,7 +54,7 @@ const Register: React.FC = () => {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col justify-end md:justify-center px-4 md:px-0 w-full max-w-md mx-auto pb-8 md:pb-0">
-        <h2 className="text-2xl font-bold mb-8">Create Account</h2>
+        <h2 className="text-S3 mb-8">Create Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <Input
@@ -99,7 +99,7 @@ const Register: React.FC = () => {
                 />
               )}
               <span
-                className={`text-sm ${
+                className={`text-R7 mt-1 ${
                   errors.agreed ? "text-primary" : "text-text-secondary"
                 }`}
               >
@@ -131,3 +131,4 @@ const Register: React.FC = () => {
   );
 };
 export default Register;
+//  ${focusBorderColor}

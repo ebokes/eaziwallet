@@ -5,6 +5,7 @@ import React, {
   type KeyboardEvent,
 } from "react";
 import { CheckCircle2 } from "lucide-react";
+import { CheckboxCircleLine } from "../icons/Icons";
 
 interface OTPInputProps {
   length?: number;
@@ -77,7 +78,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative flex items-center justify-center gap-1">
+      <div className="relative flex items-center justify-center">
         {/* First Group of 3 */}
         <div className="flex gap-2">
           {[0, 1, 2].map((index) => (
@@ -92,7 +93,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
               value={value[index] || ""}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-8 h-12 text-center text-3xl font-medium bg-transparent outline-none p-0 text-text-primary placeholder:text-gray-300"
+              className="w-6 h-12 text-center text-R1 bg-transparent outline-none p-0 text-text-primary placeholder:text-gray-300"
               placeholder="X"
             />
           ))}
@@ -115,7 +116,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
               value={value[index] || ""}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-8 h-12 text-center text-3xl font-medium bg-transparent outline-none p-0 text-text-primary placeholder:text-gray-300"
+              className="w-6 h-12 text-center text-R1 bg-transparent outline-none p-0 text-text-primary placeholder:text-gray-300"
               placeholder="X"
             />
           ))}
@@ -124,7 +125,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
         {/* Success Icon */}
         {isComplete && (
           <div className="absolute -right-8">
-            <CheckCircle2 className="text-shamrock" size={24} />
+            <CheckboxCircleLine className="text-shamrock" />
           </div>
         )}
       </div>

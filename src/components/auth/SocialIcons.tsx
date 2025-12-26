@@ -3,7 +3,11 @@ import { AppleIcon, FacebookIcon, GoogleIcon } from "../ui/SocialIcon";
 const SocialIcons = () => {
   return (
     <div className="mt-6 text-center animate-fade-in">
-      <p className="text-text-secondary text-sm mb-4">Or continue to using</p>
+      <div className="flex items-center justify-center gap-3">
+        <hr className="w-1/4 flex-1 mb-3 border border-alice-blue" />
+        <p className="text-slate-gray text-R7 mb-3">or continue to using</p>
+        <hr className="w-1/4 flex-1 mb-3 border border-alice-blue" />
+      </div>
       <div className="flex justify-between gap-4 w-full">
         <button
           type="button"

@@ -43,7 +43,7 @@ const TransactionModal: React.FC<TransactionModalProps> = ({isOpen, onClose, sel
               <div className="flex flex-col gap-6">
                 {/* Amount Box */}
                 <div
-                  className={`bg-red-50 rounded-xl py-6 flex items-center justify-center text-center  ${
+                  className={`rounded-xl py-6 flex items-center justify-center text-center  ${
                     selectedTransaction.type === "received"
                       ? "bg-shamrock/10"
                       : "bg-golden-gate-bridge/10"

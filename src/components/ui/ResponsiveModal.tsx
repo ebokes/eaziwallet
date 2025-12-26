@@ -1,4 +1,5 @@
 import React, { type ReactNode } from "react";
+import { Button } from "./Button";
 
 interface ResponsiveModalProps {
   isOpen: boolean;
@@ -34,16 +35,16 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
         <div className="flex items-center justify-between mb-6">
           <div className=" md:hidden"></div>{" "}
           {title && (
-            <h3 className={`text-xl ${bold ? "font-bold" : "font-normal"} font-bold text-text-primary flex-1 md:text-left md:flex-auto"`}>
+            <h3 className={`${bold ? "text-S5" : "R5"} font-bold text-text-primary flex-1 md:text-left md:flex-auto"`}>
               {title}
             </h3>
           )}
-          <button
-            onClick={onClose}
-            className="p-2 text-celtic-blue font-medium hover:text-gray-600 rounded-full hover:bg-gray-100"
+          <Button
+            onClick={onClose} variant="tertiary" size="xs"
+            className="p-2 text-celtic-blue text-B6 rounded-full"
           >
             Done
-          </button>
+          </Button>
         </div>
 
         {children}
