@@ -40,7 +40,7 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
             </h3>
           )}
           <Button
-            onClick={onClose} variant="tertiary" size="xs"
+            onClick={onClose} variant="ghost" size="xs"
             className="p-2 text-celtic-blue text-B6 rounded-full"
           >
             Done

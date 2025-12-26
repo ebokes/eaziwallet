@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const BackBtn = ({ onClick }: { onClick?: () => void }) => {
   const navigate = useNavigate();
   return (
-    <div className="w-full gap-2 mt-2 text-celtic-blue font-medium">
+    <div className="w-full gap-2 mt-2 text-celtic-blue ftext-B6">
       <button
         type="button"
         onClick={onClick || (() => navigate(-1))}

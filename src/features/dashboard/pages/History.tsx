@@ -38,7 +38,7 @@ const History = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-B3 mt-4 mx-4">History</h1>
+      <h1 className="text-B2 mt-4 mx-4">History</h1>
       <div className="flex gap-4 mx-4">
         <Input
           placeholder="Search by name or amount"

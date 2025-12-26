@@ -4,16 +4,11 @@ import { useNavigate } from "react-router-dom";
 import ahmed from "../../../assets/dashboard/ahmed.png";
 import ali from "../../../assets/dashboard/ali.png";
 import steve from "../../../assets/dashboard/steve.png";
-import { ArrowRightSLine } from "../../../components/icons/Icons";
+import {
+  ContactItem,
+  type Contact,
+} from "../../../components/dashboard/ContactItem";
 import BackBtn from "../../../components/ui/BackBtn";
-
-interface Contact {
-  id: string;
-  name: string;
-  phone: string;
-  avatar: string;
-  frequent: boolean;
-}
 
 const CONTACTS: Contact[] = [
   {
@@ -81,14 +76,16 @@ const Transfer: React.FC = () => {
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold mb-8">Transfer to</h1>
+        <h1 className="text-R2  mb-8">Transfer to</h1>
 
         {/* New Contact Button */}
         <button className="w-full flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm mb-4 hover:bg-gray-50 transition-colors">
           <div className="w-12 h-12 rounded-full bg-lavender flex items-center justify-center flex-shrink-0">
             <Plus className="w-6 h-6 text-ocean-blue" />
           </div>
-          <span className="font-medium text-gray-900">New contact</span>
+          <span className="text-R7 md:text-R6 text-text-primary">
+            New contact
+          </span>
         </button>
 
         {/* Divider */}
@@ -113,33 +110,16 @@ const Transfer: React.FC = () => {
         {/* Frequent Contacts */}
         {frequentContacts.length > 0 && (
           <div className="mb-6">
-            <h2 className="text-sm font-medium text-slate-gray mb-4">
+            <h2 className="text-R7 md:text-R6 text-black-coral mb-4">
               Frequent contacts
             </h2>
             <div className="space-y-3">
               {frequentContacts.map((contact) => (
-                <div key={`frequent-${contact.id}`}>
-                  <button
-                    onClick={() => handleContactClick(contact)}
-                    className="w-full flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                      <img
-                        src={contact.avatar}
-                        alt={contact.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="flex-1 text-left">
-                      <p className="font-medium text-gray-900">
-                        {contact.name}
-                      </p>
-                      <p className="text-sm text-slate-gray">{contact.phone}</p>
-                    </div>
-                    <ArrowRightSLine className="w-5 h-5 text-gray-400" />
-                  </button>
-                  <hr className="w-full border-alice-blue" />
-                </div>
+                <ContactItem
+                  key={`frequent-${contact.id}`}
+                  contact={contact}
+                  onClick={handleContactClick}
+                />
               ))}
             </div>
           </div>
@@ -153,28 +133,11 @@ const Transfer: React.FC = () => {
             </h2>
             <div className="space-y-3">
               {allContacts.map((contact) => (
-                <div key={`all-${contact.id}`}>
-                  <button
-                    onClick={() => handleContactClick(contact)}
-                    className="w-full flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                      <img
-                        src={contact.avatar}
-                        alt={contact.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="flex-1 text-left">
-                      <p className="font-medium text-gray-900">
-                        {contact.name}
-                      </p>
-                      <p className="text-sm text-slate-gray">{contact.phone}</p>
-                    </div>
-                    <ArrowRightSLine className="w-5 h-5 text-gray-400" />
-                  </button>
-                  <hr className="w-full border-alice-blue" />
-                </div>
+                <ContactItem
+                  key={`all-${contact.id}`}
+                  contact={contact}
+                  onClick={handleContactClick}
+                />
               ))}
             </div>
           </div>

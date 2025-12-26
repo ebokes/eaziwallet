@@ -58,10 +58,10 @@ const TransferAmount: React.FC = () => {
 
         {/* Content */}
         <div className="flex-1 flex flex-col items-center justify-start pt-8">
-          <h1 className="text-2xl font-bold mb-8">Transfer to</h1>
+          <h1 className="text-R2 mb-8">Transfer to</h1>
 
           {/* Contact Info */}
-          <div className="flex flex-col items-center mb-8">
+          <div className="flex items-center gap-4 mb-8">
             <div className="w-20 h-20 rounded-full overflow-hidden mb-3">
               <img
                 src={contact.avatar}
@@ -69,18 +69,21 @@ const TransferAmount: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-bold text-gray-900">{contact.name}</p>
-            <p className="text-sm text-slate-gray">{contact.phone}</p>
+            <div className="flex flex-col">
+
+            <p className="text-B5 text-text-primary">{contact.name}</p>
+            <p className="text-R6 text-text-secondary">{contact.phone}</p>
+            </div>
           </div>
 
           {/* Amount Input */}
           <div className="mb-12 w-full max-w-xs mx-auto">
-            <p className="text-sm text-slate-gray text-center mb-4">
+            <p className="text-R7 text-text-secondary text-center mb-4">
               Enter Amount
             </p>
             <div className="relative flex items-center justify-center">
               {amount && (
-                <span className="text-5xl font-light text-gray-900 mr-2">
+                <span className="text-R1 text-silver-sand">
                   $
                 </span>
               )}

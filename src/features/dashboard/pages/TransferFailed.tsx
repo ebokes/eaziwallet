@@ -13,7 +13,7 @@ const TransferFailed: React.FC = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 py-8">
       <div className="max-w-md w-full">
-        {/* Failure Icon */}
+        {/* Failure Image */}
         <div className="flex justify-center mb-6">
           <img src={failure} alt="failure" className="w-[230px]" />
         </div>

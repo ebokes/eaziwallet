@@ -1,6 +1,6 @@
-import { ChevronRight } from "lucide-react";
 import React from "react";
 import { type Transaction } from "../../../lib/constants";
+import { ArrowDropRightLine } from "../../icons/Icons";
 import TransactionItem from "../../ui/Transaction";
 
 interface TransactionRowProps {
@@ -30,7 +30,7 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({
           {transaction.amount.toFixed(2)}
         </span>
         <button>
-          <ChevronRight size={14} className="text-gray-400" />
+          <ArrowDropRightLine className="text-black-coral -ml-1 mb-1" />
         </button>
       </div>
     </div>

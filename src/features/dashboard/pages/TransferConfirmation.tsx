@@ -24,19 +24,13 @@ const TransferConfirmation: React.FC = () => {
   };
 
   const handlePayment = () => {
-    // Simulate random success/failure
-    const isSuccess = Math.random() > 0.3;
-    if (isSuccess) {
-      navigate("/payment-success", {
+      navigate("/transfer-failed", {
         state: {
           biller: contact.name,
           amount: `$${amount.toFixed(2)}`,
           transactionNo: Math.random().toString(36).substring(2, 15),
         },
       });
-    } else {
-      navigate("/transfer-failed");
-    }
   };
 
   return (
@@ -49,27 +43,29 @@ const TransferConfirmation: React.FC = () => {
 
         {/* Content */}
         <div className="flex-1 flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold mb-12">Transfer to</h1>
+          <h1 className="text-R2 mb-8">Transfer to</h1>
 
           {/* Contact Info */}
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-20 h-20 rounded-full overflow-hidden mb-3">
               <img
                 src={contact.avatar}
                 alt={contact.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-bold text-lg text-gray-900">{contact.name}</p>
-            <p className="text-sm text-slate-gray">{contact.phone}</p>
+            <div className="flex flex-col">
+              <p className="text-B5 text-text-primary">{contact.name}</p>
+              <p className="text-R6 text-text-secondary">{contact.phone}</p>
+            </div>
           </div>
 
           {/* Amount Display */}
           <div className="mb-16">
-            <p className="text-sm text-slate-gray text-center mb-2">
+            <p className="text-R7 text-text-secondary text-center mb-2">
               Enter Amount
             </p>
-            <p className="text-5xl font-light text-gray-900 text-center">
+            <p className="text-R1 text-text-primary text-center">
               ${amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}
             </p>
           </div>

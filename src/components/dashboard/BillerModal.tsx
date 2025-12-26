@@ -42,8 +42,8 @@ export const BillerModal: React.FC<BillerModalProps> = ({
             {biller.icon}
           </div>
           <div className="flex flex-col">
-            <h3 className="text-text-primary text-B4">{biller.name}</h3>
-            <span className="text-text-secondary text-lg">{biller.type}</span>
+            <h3 className="text-text-primary text-B5">{biller.name}</h3>
+            <span className="text-slate-gray text-R6">{biller.type}</span>
           </div>
         </div>
       }
@@ -52,7 +52,7 @@ export const BillerModal: React.FC<BillerModalProps> = ({
         {/* Due Amount Box */}
         {biller.due && (
           <div className="bg-golden-gate-bridge/10 rounded-xl py-6 flex items-center justify-center text-center">
-            <span className="text-S2 text-golden-gate-bridge">
+            <span className="text-B3 text-golden-gate-bridge">
               Due: {biller.due}
             </span>
           </div>
@@ -64,7 +64,7 @@ export const BillerModal: React.FC<BillerModalProps> = ({
             <span className="text-R6 text-text-secondary block mb-1">
               Due date
             </span>
-            <span className="text-R5 text-black-coral text-text-primary">
+            <span className="text-R5 text-text-primary">
               {biller.dueDate}
             </span>
           </div>
@@ -76,7 +76,7 @@ export const BillerModal: React.FC<BillerModalProps> = ({
             <span className="text-R6 text-text-secondary block mb-1">
               Registration no.
             </span>
-            <span className="text-R5 text-black-coral">
+            <span className="text-R5 text-text-primary">
               {biller.registrationNo}
             </span>
           </div>
