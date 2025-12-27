@@ -5,7 +5,7 @@ import { Layout } from "../../layouts/Layout";
 const Splash = lazy(() => import("../../features/auth/pages/Splash"));
 const Login = lazy(() => import("../../features/auth/pages/Login"));
 const SignUp = lazy(() => import("../../features/auth/pages/SignUp"));
-const OTP = lazy(() => import("../../features/auth/pages/OTP"));
+const OTP = lazy(() => import("../../features/auth/pages/Otp"));
 const Dashboard = lazy(
   () => import("../../features/dashboard/pages/Dashboard")
 );
