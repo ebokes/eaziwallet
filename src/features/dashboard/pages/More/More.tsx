@@ -66,6 +66,7 @@ const More: React.FC = () => {
       icon: <PieChart2Line className="w-5 md:w-6 h-5 md:h-6" />,
       bgColor: "bg-bright-gray",
       textColor: "text-violet",
+      onClick: () => navigate("/analytics"),
     },
   ];
 

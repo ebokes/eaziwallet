@@ -13,6 +13,7 @@ const Dashboard = lazy(
 const History = lazy(() => import("../features/dashboard/pages/History"));
 const More = lazy(() => import("../features/dashboard/pages/More/More"));
 const Cards = lazy(() => import("../features/dashboard/pages/Card"));
+const Analytics = lazy(() => import("../features/dashboard/pages/Analytics"));
 const About = lazy(() => import("../features/dashboard/pages/More/About"));
 const Profile = lazy(() => import("../features/dashboard/pages/Home/Profile"));
 const PayBills = lazy(
@@ -49,6 +50,7 @@ export default function AppRoutes() {
           <Route path="/history" element={<History />} />
           <Route path="/cards" element={<Cards />} />
           <Route path="/more" element={<More />} />
+          <Route path="/analytics" element={<Analytics />} />
 
           {/* Sub-pages without bottom nav (Handled by Layout logic) */}
           <Route path="/about" element={<About />} />
