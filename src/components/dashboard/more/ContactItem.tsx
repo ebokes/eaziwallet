@@ -24,7 +24,7 @@ export const ContactItem: React.FC<ContactItemProps> = ({
     <div>
       <button
         onClick={() => onClick(contact)}
-        className="w-full flex items-center gap-4 p-4 bg-primary rounded-2xl shadow-sm hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center gap-4 p-4 bg-primary rounded-2xl shadow-sm hover:bg-secondary transition-colors"
       >
         <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
           <img

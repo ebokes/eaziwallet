@@ -9,6 +9,7 @@ import { CheckSquare, Square } from "lucide-react";
 import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
 import { signUpSchema, type SignUpSchema } from "../schemas/signUpSchema";
 import BackBtn from "../../../components/ui/BackBtn";
+import PasswordStrength from "../../../components/auth/PasswordStrength";
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const Register: React.FC = () => {
   });
 
   const agreed = watch("agreed");
+  const password = watch("password");
 
   const onSubmit = async (data: SignUpSchema) => {
     setIsLoading(true);
@@ -77,6 +79,7 @@ const Register: React.FC = () => {
             {...register("password")}
             error={errors.password?.message}
           />
+          <PasswordStrength password={password} />
 
           <div className="pt-2">
             <div

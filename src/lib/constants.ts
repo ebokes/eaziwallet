@@ -7,14 +7,13 @@ import homeDepot from "../assets/dashboard/The home depot.png";
 import ali from "../assets/dashboard/ali.png";
 import apple from "../assets/dashboard/Apple.png";
 import { getMockDate } from "./utils";
+import card1 from "../assets/dashboard/Card 1.png";
+import card2 from "../assets/dashboard/Card 2.png";
+import card3 from "../assets/dashboard/Card 3.png";
 
 export interface Card {
   id: number;
-  name: string;
-  cardNumber: string;
-  expiry: string;
-  balance: string;
-  variant: "primary" | "secondary" | "dark";
+  img?: string | undefined;
 }
 
 
@@ -135,27 +134,15 @@ export const MOCK_TRANSACTIONS: Transaction[] = [
 export const INITIAL_CARDS: Card[] = [
   {
     id: 1,
-    name: "Abdullah Ghatasheh",
-    cardNumber: "1234567890123245",
-    expiry: "12/24",
-    balance: "2,354",
-    variant: "primary",
+    img: card3,
   },
   {
     id: 2,
-    name: "Abdullah Ghatasheh",
-    cardNumber: "9876543210987654",
-    expiry: "09/25",
-    balance: "5,120",
-    variant: "secondary",
+    img: card2,
   },
   {
     id: 3,
-    name: "Abdullah Ghatasheh",
-    cardNumber: "4561237894561234",
-    expiry: "11/26",
-    balance: "1,200",
-    variant: "dark",
+    img: card1,
   },
 ];
 

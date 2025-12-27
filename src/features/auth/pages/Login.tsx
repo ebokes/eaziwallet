@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Mobile from "../../../assets/auth/mobile-phone.png";
 import Secure from "../../../assets/auth/secure.png";
@@ -15,6 +15,8 @@ import {
   type ForgotPasswordSchema,
   type LoginSchema,
 } from "../schemas/loginSchema";
+import { PhoneInput } from "../../../components/ui/PhoneInput";
+import { ChevronLeft } from "lucide-react";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -27,6 +29,7 @@ const Login: React.FC = () => {
     register,
     handleSubmit,
     trigger,
+    control,
     // setValue,
     // watch,
     formState: { errors },
@@ -36,7 +39,7 @@ const Login: React.FC = () => {
       phone: "",
       password: "",
     },
-    mode: "onChange",
+    mode: "onSubmit",
   });
 
   const {
@@ -52,7 +55,7 @@ const Login: React.FC = () => {
       email: "",
       mobile: "",
     },
-    mode: "onChange",
+    mode: "onSubmit",
   });
 
   const handleContinue = async (e: React.FormEvent) => {
@@ -92,14 +95,6 @@ const Login: React.FC = () => {
     <div className="flex flex-col md:flex-row items-center w-full justify-center h-screen overflow-hidden">
       <div className="bg-lavender/70 w-full md:w-1/2 h-1/2 md:h-full grid place-items-center">
         <div className="w-full md:hidden ml-4 gap-2 mt-2 text-celtic-blue font-medium">
-          {/* <button
-            type="button"
-            onClick={() => setStep("phone")}
-            className="flex items-center text-sm text-secondary hover:text-primary transition-colors"
-          >
-            <ChevronLeft size={16} className="mr-1 flex justify-self-start" />{" "}
-            Back
-          </button> */}
         </div>
         <div className="flex flex-col items-center">
           <div className="flex justify-center mb-10">
@@ -141,12 +136,17 @@ const Login: React.FC = () => {
           >
             {step === "phone" && (
               <div className="animate-fade-in">
-                <Input
-                  label="Mobile number"
-                  placeholder="e.g. 08012345678"
-                  type="tel"
-                  {...register("phone")}
-                  error={errors.phone?.message}
+                <Controller
+                  name="phone"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <PhoneInput
+                      label="Mobile number"
+                      value={value}
+                      onChange={onChange}
+                      error={errors.phone?.message}
+                    />
+                  )}
                 />
                 <div className="mt-6">
                   <Button type="submit" fullWidth isLoading={isLoading}>
@@ -189,9 +189,7 @@ const Login: React.FC = () => {
 
             {step === "phone" && (
               <div className="text-center text-sm">
-                <span className="text-secondary">
-                  Don't have an account?{" "}
-                </span>
+                <span className="text-secondary">Don't have an account? </span>
                 <Link
                   to="/sign-up"
                   className="font-bold text-celtic-blue hover:underline"
@@ -236,7 +234,9 @@ const Login: React.FC = () => {
               </form>
 
               <div className="text-center">
-                <Button variant="ghost" size="xs"
+                <Button
+                  variant="ghost"
+                  size="xs"
                   onClick={toggleResetMethod}
                   className="text-B6 text-celtic-blue"
                 >
@@ -245,7 +245,6 @@ const Login: React.FC = () => {
               </div>
             </div>
           </ResponsiveModal>
-         
         </div>
       </div>
     </div>

@@ -32,9 +32,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     };
 
     // Determine border and background colors based on state
-    let borderColor = "border-azureish-white";
+    let borderColor = "border-soft";
     let focusRingColor = "focus:ring-ocean-blue";
-    let bgColor = "bg-white";
+    let bgColor = "bg-primary";
 
     if (error) {
       borderColor = "border-golden-gate-bridge";
@@ -44,7 +44,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       focusRingColor = "focus:ring-shamrock";
     } else if (props.disabled) {
       borderColor = "border-azureish-white";
-      bgColor = "bg-ghost-white";
+      // bgColor = "bg-ghost-white";
     }
 
     return (
@@ -64,7 +64,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             type={isPassword ? (showPassword ? "text" : "password") : type}
             className={`
-            w-full px-4 py-3 rounded-md border-2 text-primary text-R6 placeholder:text-slate-gray
+            w-full px-4 py-3 rounded-md border-2 text-primary text-R6 placeholder:text-secondary bg-primary
             transition-colors duration-200 focus:outline-none focus:ring-2
             ${leftIcon ? "pl-10" : ""}
             ${isPassword || error || success ? "pr-10" : ""}

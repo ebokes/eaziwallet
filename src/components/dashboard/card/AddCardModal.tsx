@@ -53,11 +53,7 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({
     setTimeout(() => {
       onAdd({
         id: Date.now(),
-        name: data.name,
-        cardNumber: data.cardNumber,
-        expiry: data.expiry,
-        balance: "0.00",
-        variant: Math.random() > 0.5 ? "primary" : "secondary",
+        img: "",
       });
       setIsLoading(false);
       onClose();

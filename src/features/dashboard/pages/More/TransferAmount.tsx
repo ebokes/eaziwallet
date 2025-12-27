@@ -70,9 +70,8 @@ const TransferAmount: React.FC = () => {
               />
             </div>
             <div className="flex flex-col">
-
-            <p className="text-B5 text-primary">{contact.name}</p>
-            <p className="text-R6 text-secondary">{contact.phone}</p>
+              <p className="text-B5 text-primary">{contact.name}</p>
+              <p className="text-R6 text-secondary">{contact.phone}</p>
             </div>
           </div>
 
@@ -82,18 +81,14 @@ const TransferAmount: React.FC = () => {
               Enter Amount
             </p>
             <div className="relative flex items-center justify-center">
-              {amount && (
-                <span className="text-R1 text-silver-sand">
-                  $
-                </span>
-              )}
+              {amount && <span className="text-R1 text-silver-sand">$</span>}
               <input
                 type="number"
                 inputMode="decimal"
                 value={amount}
                 onChange={handleAmountChange}
                 placeholder="$0.00"
-                className="w-60 px-2 py-4 text-R1 text-center border-b-2 border-indigo bg-primary focus:outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                className="w-60 px-2 py-4 text-R1 text-center border-b-2 border-majorelle-blue bg-primary focus:outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
                 autoFocus
               />
             </div>

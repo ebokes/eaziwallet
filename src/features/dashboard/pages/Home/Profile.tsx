@@ -84,7 +84,7 @@ const Profile: React.FC = () => {
         {/* Settings Form */}
         <form onSubmit={handleSubmit(handleSave)} className="space-y-4">
           {/* Full Name */}
-          <div className="bg-white rounded-2xl px-4 py-4 shadow-sm">
+          <div className="bg-primary rounded-2xl px-4 py-4 shadow-sm">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-md bg-lavender flex items-center justify-center flex-shrink-0">
                 <User6Line className="w-5 h-5 text-ocean-blue" />
@@ -105,12 +105,12 @@ const Profile: React.FC = () => {
                   />
                 ) : (
                   <>
-                    <p className="text-xs text-primary mb-1">Full name</p>
+                    <p className="text-R7 text-primary mb-1">Full name</p>
                     <Controller
                       name="fullName"
                       control={control}
                       render={({ field }) => (
-                        <p className="font-medium text-gray-900">
+                        <p className="text-B7 text-gray-900">
                           {field.value}
                         </p>
                       )}
@@ -138,7 +138,7 @@ const Profile: React.FC = () => {
           </div>
 
           {/* Mobile */}
-          <div className="bg-white rounded-2xl px-4 py-4 shadow-sm">
+          <div className="bg-primary rounded-2xl px-4 py-4 shadow-sm">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-md bg-cloud flex items-center justify-center flex-shrink-0">
                 <SmartphoneLine className="w-5 h-5 text-celtic-blue" />
@@ -159,12 +159,12 @@ const Profile: React.FC = () => {
                   />
                 ) : (
                   <>
-                    <p className="text-xs text-slate-gray mb-1">Mobile</p>
+                    <p className="text-R7 text-secondary mb-1">Mobile</p>
                     <Controller
                       name="mobile"
                       control={control}
                       render={({ field }) => (
-                        <p className="font-medium text-gray-900">
+                        <p className="text-B7 text-primary">
                           {field.value}
                         </p>
                       )}
@@ -192,7 +192,7 @@ const Profile: React.FC = () => {
           </div>
 
           {/* Email */}
-          <div className="bg-white rounded-2xl px-4 py-4 shadow-sm">
+          <div className="bg-primary rounded-2xl px-4 py-4 shadow-sm">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-md bg-bright-green flex items-center justify-center flex-shrink-0">
                 <MailOpenLine className="w-5 h-5 text-sea-green" />
@@ -214,12 +214,12 @@ const Profile: React.FC = () => {
                   />
                 ) : (
                   <>
-                    <p className="text-xs text-slate-gray mb-1">Email</p>
+                    <p className="text-R7 text-secondary mb-1">Email</p>
                     <Controller
                       name="email"
                       control={control}
                       render={({ field }) => (
-                        <p className="font-medium text-gray-900">
+                        <p className="text-B7 text-primary">
                           {field.value}
                         </p>
                       )}
@@ -249,7 +249,7 @@ const Profile: React.FC = () => {
           {/* Change Password */}
           <button
             type="button"
-            className="w-full bg-white rounded-2xl px-4 py-4 shadow-sm flex items-center gap-4 hover:bg-gray-50 transition-colors"
+            className="w-full bg-primary rounded-2xl px-4 py-4 shadow-sm flex items-center gap-4 hover:bg-gray-50 transition-colors"
           >
             <div className="w-10 h-10 rounded-md bg-pale-pink flex items-center justify-center flex-shrink-0">
               <svg
@@ -264,7 +264,7 @@ const Profile: React.FC = () => {
                 />
               </svg>
             </div>
-            <span className="flex-1 text-left font-medium text-gray-900">
+            <span className="flex-1 text-left text-B7 text-primary">
               Change password
             </span>
             <ArrowRightSLine className="w-5 h-5 text-gray-400" />

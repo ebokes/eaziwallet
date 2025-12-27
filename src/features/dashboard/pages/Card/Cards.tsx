@@ -7,6 +7,32 @@ import { QrCodeLine, RssLine } from "../../../../components/ui/icons/Icons";
 import { Button } from "../../../../components/ui/Button";
 import BackBtn from "../../../../components/ui/BackBtn";
 
+const DetailView: React.FC<{ card: Card }> = ({ card }) => (
+  <div className="animate-fade-in flex flex-col items-center w-full max-w-2xl mx-auto h-full">
+    <div className="w-full max-w-md flex justify-center mb-8 md:mb-12">
+      <CreditCard {...card} img={card.img} />
+    </div>
+
+    <div className="flex-1 md:flex-none flex flex-col items-center justify-center mb-8 md:mb-12">
+      <div className="mb-4 text-secondary animate-pulse">
+        <RssLine />
+      </div>
+      <p className="text-R5 text-secondary text-center">
+        Move near a device to pay
+      </p>
+    </div>
+
+    <div className="w-full max-w-md mt-auto md:mt-0">
+      <Button
+        fullWidth
+        className="h-14 text-lg font-bold flex items-center gap-2 justify-center"
+      >
+        <QrCodeLine /> QR Pay
+      </Button>
+    </div>
+  </div>
+);
+
 // Mock Data
 export const Cards: React.FC = () => {
   const [cards, setCards] = useState(INITIAL_CARDS);
@@ -18,10 +44,7 @@ export const Cards: React.FC = () => {
   };
 
   const handleCardClick = (card: Card) => {
-    // Only relevant for mobile view detail toggle
-    if (window.innerWidth < 768) {
-      setSelectedCard(card);
-    }
+    setSelectedCard(card);
   };
 
   const handleBack = () => {
@@ -50,34 +73,7 @@ export const Cards: React.FC = () => {
       {/* Mobile Views */}
       <div className="md:hidden h-[calc(100vh-200px)] flex flex-col">
         {selectedCard ? (
-          // Detail View
-          <div className="animate-fade-in flex flex-col h-full">
-            <div className="flex justify-center mb-8">
-              <CreditCard
-                {...selectedCard}
-                variant={selectedCard.variant}
-                className="shadow-[0_10px_30px_rgba(0,0,0,0.15)] max-w-[340px]"
-              />
-            </div>
-
-            <div className="flex-1 flex flex-col items-center justify-center">
-              <div className="mb-4 text-slate-gray animate-pulse">
-                <RssLine />
-              </div>
-              <p className="font-medium text-lg text-slate-gray text-center">
-                Move near a device to pay
-              </p>
-            </div>
-
-            <div className="mt-auto pt-4">
-              <Button
-                fullWidth
-                className="h-14 text-lg font-bold flex items-center gap-2 justify-center"
-              >
-                <QrCodeLine /> QR Pay
-              </Button>
-            </div>
-          </div>
+          <DetailView card={selectedCard} />
         ) : (
           // Stacked List View
           <div className="relative h-[400px] flex justify-center pt-4">
@@ -95,7 +91,8 @@ export const Cards: React.FC = () => {
                 >
                   <CreditCard
                     {...card}
-                    variant={card.variant}
+                    img={card.img}
+                    // variant={card.variant}
                     className="shadow-[0_-5px_20px_rgba(0,0,0,0.1)]"
                   />
                 </div>
@@ -105,27 +102,23 @@ export const Cards: React.FC = () => {
         )}
       </div>
 
-      {/* Desktop Grid View */}
-      <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
-        {cards.map((card) => (
-          <CreditCard
-            key={card.id}
-            {...card}
-            variant={card.variant}
-            className="hover:shadow-2xl transition-shadow duration-300"
-          />
-        ))}
-
-        {/* Add New Card Placeholder */}
-        <div
-          onClick={() => setIsAddModalOpen(true)}
-          className="aspect-[1.586/1] border-2 border-dashed border-gray-200 rounded-3xl flex flex-col items-center justify-center text-gray-400 hover:border-primary hover:text-primary hover:bg-primary/5 cursor-pointer transition-all group"
-        >
-          <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-2 group-hover:bg-primary/10 transition-colors">
-            <Plus size={24} />
+      {/* Desktop Views */}
+      <div className="hidden md:block">
+        {selectedCard ? (
+          <DetailView card={selectedCard} />
+        ) : (
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            {cards.map((card) => (
+              <CreditCard
+                key={card.id}
+                {...card}
+                img={card.img}
+                className="hover:shadow-2xl transition-shadow duration-300"
+                onClick={() => handleCardClick(card)}
+              />
+            ))}
           </div>
-          <span className="font-medium">Add New Card</span>
-        </div>
+        )}
       </div>
 
       <AddCardModal

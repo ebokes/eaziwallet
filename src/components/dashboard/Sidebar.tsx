@@ -20,7 +20,7 @@ export const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 p-6 shadow-elevation-card">
+    <div className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 p-6 shadow-elevation-card z-50">
       <div className="mb-10 flex justify-between items-center gap-3">
         <h1 className="text-xl font-bold text-primary">Eazi Wallet</h1>
         <div className="cursor-pointer">

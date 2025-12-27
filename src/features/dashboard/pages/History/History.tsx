@@ -54,7 +54,7 @@ const History = () => {
             onChange={(e) =>
               setFilterType(e.target.value as "all" | "sent" | "received")
             }
-            className="appearance-none pl-10 pr-8 py-3.5 text-base rounded-md font-semibold transition-all duration-200 focus:outline-none cursor-pointer border border-azureish-white text-primary hover:bg-azureish-white/5 bg-primary"
+            className="appearance-none pl-10 pr-8 py-3 text-base rounded-md font-semibold transition-all duration-200 focus:outline-none cursor-pointer border border-soft text-primary hover:bg-secondary bg-primary"
           >
             <option value="all">Filter: All</option>
             <option value="sent">Filter: Sent</option>

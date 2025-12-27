@@ -13,7 +13,7 @@ export const Layout: React.FC = () => {
   const shouldShowNav = SHOW_NAV_PATHS.includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-primary overflow-hidden">
       {shouldShowNav && <Sidebar />}
       <main
         className={`min-h-screen transition-all duration-300 ${
