@@ -43,7 +43,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-primary">
       <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-4 md:px-8">
         <div className="flex justify-start">
           <BackBtn />
@@ -100,7 +100,7 @@ const Register: React.FC = () => {
               )}
               <span
                 className={`text-R7 mt-1 ${
-                  errors.agreed ? "text-primary" : "text-text-secondary"
+                  errors.agreed ? "text-primary" : "text-secondary"
                 }`}
               >
                 I agree to the{" "}

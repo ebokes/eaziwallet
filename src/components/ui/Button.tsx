@@ -45,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
     "tertiary-warning": "text-golden-gate-bridge",
     "tertiary-action": "text-celtic-blue",
     filters:
-      "border border-azureish-white text-primary hover:bg-azureish-white/5",
+      "border border-azureish-white text-primary bg-primary hover:bg-azureish-white/5",
     ghost: "px-0 text-regular",
   };
 

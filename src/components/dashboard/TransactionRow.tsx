@@ -1,7 +1,7 @@
 import React from "react";
-import { type Transaction } from "../../../lib/constants";
-import { ArrowDropRightLine } from "../../icons/Icons";
-import TransactionItem from "../../ui/Transaction";
+import { type Transaction } from "../../lib/constants";
+import { ArrowDropRightLine } from "../ui/icons/Icons";
+import TransactionItem from "../ui/Transaction";
 
 interface TransactionRowProps {
   transaction: Transaction;
@@ -15,7 +15,7 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({
   return (
     <div
       onClick={() => onClick(transaction)}
-      className="flex items-center justify-between py-4 hover:bg-gray-50/50 transition-colors cursor-pointer border-b border-alice-blue last:border-0"
+      className="flex items-center justify-between py-4 hover:bg-primary transition-colors cursor-pointer border-b border-light last:border-0"
     >
       <TransactionItem transaction={transaction} />
       <div className="flex items-center gap-1">
@@ -30,7 +30,7 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({
           {transaction.amount.toFixed(2)}
         </span>
         <button>
-          <ArrowDropRightLine className="text-black-coral -ml-1 mb-1" />
+          <ArrowDropRightLine className="text-primary -ml-1 mb-1" />
         </button>
       </div>
     </div>

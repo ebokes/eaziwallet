@@ -7,26 +7,26 @@ const Login = lazy(() => import("../../features/auth/pages/Login"));
 const SignUp = lazy(() => import("../../features/auth/pages/SignUp"));
 const OTP = lazy(() => import("../../features/auth/pages/Otp"));
 const Dashboard = lazy(
-  () => import("../../features/dashboard/pages/Dashboard")
+  () => import("../../features/dashboard/pages/Home/Dashboard")
 );
-const History = lazy(() => import("../../features/dashboard/pages/History"));
-const More = lazy(() => import("../../features/dashboard/pages/More"));
-const Cards = lazy(() => import("../../features/dashboard/pages/Cards"));
-const About = lazy(() => import("../../features/dashboard/pages/About"));
-const Profile = lazy(() => import("../../features/dashboard/pages/Profile"));
-const PayBills = lazy(() => import("../../features/dashboard/pages/PayBills"));
+const History = lazy(() => import("../../features/dashboard/pages/History/History"));
+const More = lazy(() => import("../../features/dashboard/pages/More/More"));
+const Cards = lazy(() => import("../../features/dashboard/pages/Card/Cards"));
+const About = lazy(() => import("../../features/dashboard/pages/More/About"));
+const Profile = lazy(() => import("../../features/dashboard/pages/Home/Profile"));
+const PayBills = lazy(() => import("../../features/dashboard/pages/More/PayBills"));
 const PaymentSuccess = lazy(
-  () => import("../../features/dashboard/pages/PaymentSuccess")
+  () => import("../../features/dashboard/pages/More/PaymentSuccess")
 );
-const Transfer = lazy(() => import("../../features/dashboard/pages/Transfer"));
+const Transfer = lazy(() => import("../../features/dashboard/pages/More/Transfer"));
 const TransferAmount = lazy(
-  () => import("../../features/dashboard/pages/TransferAmount")
+  () => import("../../features/dashboard/pages/More/TransferAmount")
 );
 const TransferConfirmation = lazy(
-  () => import("../../features/dashboard/pages/TransferConfirmation")
+  () => import("../../features/dashboard/pages/More/TransferConfirmation")
 );
 const TransferFailed = lazy(
-  () => import("../../features/dashboard/pages/TransferFailed")
+  () => import("../../features/dashboard/pages/More/TransferFailed")
 );
 
 export default function AppRoutes() {

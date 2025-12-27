@@ -1,14 +1,15 @@
-import { Plus, Search } from "lucide-react";
+import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ahmed from "../../../assets/dashboard/ahmed.png";
-import ali from "../../../assets/dashboard/ali.png";
-import steve from "../../../assets/dashboard/steve.png";
+import ahmed from "../../../../assets/dashboard/ahmed.png";
+import ali from "../../../../assets/dashboard/ali.png";
+import steve from "../../../../assets/dashboard/steve.png";
 import {
   ContactItem,
   type Contact,
-} from "../../../components/dashboard/ContactItem";
-import BackBtn from "../../../components/ui/BackBtn";
+} from "../../../../components/dashboard/more/ContactItem";
+import BackBtn from "../../../../components/ui/BackBtn";
+import { SearchBar } from "../../../../components/ui/SearchBar";
 
 const CONTACTS: Contact[] = [
   {
@@ -79,38 +80,34 @@ const Transfer: React.FC = () => {
         <h1 className="text-R2  mb-8">Transfer to</h1>
 
         {/* New Contact Button */}
-        <button className="w-full flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm mb-4 hover:bg-gray-50 transition-colors">
+        <button className="w-full flex items-center gap-4 p-4 bg-primary rounded-2xl shadow-sm mb-4 hover:bg-secondary transition-colors">
           <div className="w-12 h-12 rounded-full bg-lavender flex items-center justify-center flex-shrink-0">
             <Plus className="w-6 h-6 text-ocean-blue" />
           </div>
-          <span className="text-R7 md:text-R6 text-text-primary">
+          <span className="text-R7 md:text-R6 text-primary">
             New contact
           </span>
         </button>
 
         {/* Divider */}
         <div className="flex items-center gap-2">
-          <hr className="w-full border-alice-blue" />
-          <div className="text-center text-slate-gray text-sm my-6">or</div>
-          <hr className="w-full border-alice-blue" />
+          <hr className="w-full border-light" />
+          <div className="text-center text-secondary text-sm my-6">or</div>
+          <hr className="w-full border-light" />
         </div>
 
         {/* Search */}
-        <div className="relative mb-6">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search contact"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 bg-white border border-alice-blue rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo focus:border-transparent"
-          />
-        </div>
+        <SearchBar
+          placeholder="Search contact"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="mb-6"
+        />
 
         {/* Frequent Contacts */}
         {frequentContacts.length > 0 && (
           <div className="mb-6">
-            <h2 className="text-R7 md:text-R6 text-black-coral mb-4">
+            <h2 className="text-R7 md:text-R6 text-primary mb-4">
               Frequent contacts
             </h2>
             <div className="space-y-3">
@@ -128,7 +125,7 @@ const Transfer: React.FC = () => {
         {/* All Contacts */}
         {allContacts.length > 0 && (
           <div className="mb-4">
-            <h2 className="text-sm font-medium text-slate-gray mb-4">
+            <h2 className="text-R7 md:text-R6 text-primary mb-4">
               All contacts
             </h2>
             <div className="space-y-3">

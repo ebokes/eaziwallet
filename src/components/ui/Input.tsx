@@ -1,6 +1,6 @@
 import React, { type InputHTMLAttributes } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { ErrorWarningLine, CheckboxCircleLine } from "../icons/Icons";
+import { ErrorWarningLine, CheckboxCircleLine } from "./icons/Icons";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -64,7 +64,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             type={isPassword ? (showPassword ? "text" : "password") : type}
             className={`
-            w-full px-4 py-3 rounded-md border-2 text-text-primary text-R6 placeholder:text-slate-gray
+            w-full px-4 py-3 rounded-md border-2 text-primary text-R6 placeholder:text-slate-gray
             transition-colors duration-200 focus:outline-none focus:ring-2
             ${leftIcon ? "pl-10" : ""}
             ${isPassword || error || success ? "pr-10" : ""}
@@ -88,7 +88,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-gray hover:text-text-primary focus:outline-none transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-gray hover:text-primary focus:outline-none transition-colors"
             >
               {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
             </button>

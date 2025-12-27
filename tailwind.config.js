@@ -64,43 +64,44 @@ export default {
       textColor: {
         primary: "var(--text-primary)",
         secondary: "var(--text-secondary)",
-        brand: "var(--text-brand)",
+        tertiary: "var(--text-tertiary)",
       },
       borderColor: {
         soft: "var(--border-soft)",
+        light: "var(--border-light)",
       },
       fontSize: {
-        // B1 & R1 - 36px
+        // B1 & S1 & R1 - 36px
         B1: ["2.25rem", { fontWeight: "700" }],
         S1: ["2.25rem", { fontWeight: "600" }],
         R1: ["2.25rem", { fontWeight: "400" }],
 
-        // B2 & R2 - 24px
+        // B2 & S2 & R2 - 24px
         B2: ["1.5rem", { fontWeight: "700" }],
         S2: ["1.5rem", { fontWeight: "600" }],
         R2: ["1.5rem", { fontWeight: "400" }],
 
-        // B3 & R3 - 21px
+        // B3 & S3 & R3 - 21px
         B3: ["1.3125rem", { fontWeight: "700" }],
         S3: ["1.3125rem", { fontWeight: "600" }],
         R3: ["1.3125rem", { fontWeight: "400" }],
 
-        // B4 & R4 - 18px
+        // B4 & S4 & R4 - 18px
         B4: ["1.125rem", { fontWeight: "700" }],
         S4: ["1.125rem", { fontWeight: "600" }],
         R4: ["1.125rem", { fontWeight: "400" }],
 
-        // B5 & R5 - 16px
+        // B5 & S5 & R5 - 16px
         B5: ["1rem", { fontWeight: "700" }],
         S5: ["1rem", { fontWeight: "600" }],
         R5: ["1rem", { fontWeight: "400" }],
 
-        // B6 & R6 - 14px
+        // B6 & S6 & R6 - 14px
         B6: ["0.875rem", { fontWeight: "700" }],
         S6: ["0.875rem", { fontWeight: "600" }],
         R6: ["0.875rem", { fontWeight: "400" }],
 
-        // B7 & R7 - 12px
+        // B7 & S7 & R7 - 12px
         B7: ["0.75rem", { fontWeight: "700" }],
         S7: ["0.75rem", { fontWeight: "600" }],
         R7: ["0.75rem", { fontWeight: "400" }],

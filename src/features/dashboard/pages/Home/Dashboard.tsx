@@ -1,26 +1,24 @@
 import { Plus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Avartar3 from "../../../assets/dashboard/ahmed.png";
-import {
-  default as Avartar,
-  default as Avartar1,
-} from "../../../assets/dashboard/ali.png"; // Placeholder for the avatar in the image
-import Avartar2 from "../../../assets/dashboard/steve.png";
-import BalanceCard from "../../../components/dashboard/home/BalanceCard";
-import { TransactionList } from "../../../components/dashboard/home/TransactionList";
-import TransactionModal from "../../../components/dashboard/TransactionModal";
-import { Settings3Line } from "../../../components/icons/Icons";
-import { Button } from "../../../components/ui/Button";
-import { MOCK_TRANSACTIONS, type Transaction } from "../../../lib/constants";
-import { formatCurrency } from "../../../lib/utils";
+import Avartar3 from "../../../../assets/dashboard/ahmed.png";
+import Avartar from "../../../../assets/dashboard/ali.png"
+import Avartar1 from "../../../../assets/dashboard/ali.png"
+import Avartar2 from "../../../../assets/dashboard/steve.png";
+import BalanceCard from "../../../../components/dashboard/home/BalanceCard";
+import { TransactionList } from "../../../../components/dashboard/home/TransactionList";
+import { Settings3Line } from "../../../../components/ui/icons/Icons";
+import { Button } from "../../../../components/ui/Button";
+import { MOCK_TRANSACTIONS, type Transaction } from "../../../../lib/constants";
+import { formatCurrency } from "../../../../lib/utils";
+import TransactionModal from "../../../../components/dashboard/more/TransactionModal";
 
 // Mock Data for Transfers
 const RECENT_TRANSFERS = [
   { id: "1", name: "Ali", image: Avartar1 },
   { id: "2", name: "Steve", image: Avartar2 },
   { id: "3", name: "Ahmed", image: Avartar3 },
-  { id: "4", name: "Maria", image: Avartar1 }, 
+  { id: "4", name: "Maria", image: Avartar1 },
 ];
 
 const Dashboard: React.FC = () => {
@@ -87,17 +85,19 @@ const Dashboard: React.FC = () => {
       </div>
 
       {/* Bottom Section (White Background) */}
-      <div className="flex-1 bg-white -mt-6 pt-8 pb-24 lg:px-8 lg:pt-12 lg:flex lg:gap-12 lg:items-start px-4 ">
+      <div className="flex-1 bg-primary -mt-6 pt-8 pb-24 lg:px-8 lg:pt-12 lg:flex lg:gap-12 lg:items-start px-4 ">
         {/* Recent Transfers */}
-        <div className="mb-0 py-2 md:py-0 pb-6 lg:w-1/3 lg:border-r lg:border-gray-100 lg:pr-8">
-          <h3 className="text-B6 md:text-B5 text-text-primary mb-4">Recent Transfers</h3>
+        <div className="mb-0 py-2 md:py-0 pb-6 lg:w-1/3 lg:border-r lg:border-soft lg:pr-8">
+          <h3 className="text-B6 md:text-B5 text-primary mb-4">
+            Recent Transfers
+          </h3>
           <div className="flex gap-6 overflow-x-auto pb-2 no-scrollbar lg:flex-wrap ">
             {/* Add Button */}
             <div className="flex flex-col items-center gap-2 min-w-[72px]">
               <button className="w-16 h-16 rounded-full bg-lavender flex items-center justify-center text-black shadow-sm hover:shadow-md transition-shadow">
                 <Plus size={24} />
               </button>
-              <span className="text-R7 text-text-primary">Add</span>
+              <span className="text-R7 text-primary">Add</span>
             </div>
 
             {RECENT_TRANSFERS.map((user) => (
@@ -112,9 +112,7 @@ const Dashboard: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="text-R7 text-text-primary">
-                  {user.name}
-                </span>
+                <span className="text-R7 text-primary">{user.name}</span>
               </div>
             ))}
           </div>
@@ -123,8 +121,14 @@ const Dashboard: React.FC = () => {
         {/* Latest Transactions */}
         <div className="mt-2 lg:mt-0 lg:flex-1 space-y-4">
           <div className="flex gap-2 items-center justify-between -mb-2">
-            <h2 className="text-B6 md:text-B5 text-text-primary">Latest Transactions</h2>
-            <Button variant="ghost" size="xs" className="text-R7 text-[#6B6B6B]">
+            <h2 className="text-B6 md:text-B5 text-primary">
+              Latest Transactions
+            </h2>
+            <Button
+              variant="ghost"
+              size="xs"
+              className="text-R7 text-[#6B6B6B]"
+            >
               View all
             </Button>
           </div>

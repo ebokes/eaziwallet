@@ -4,7 +4,7 @@ import React, {
   type ChangeEvent,
   type KeyboardEvent,
 } from "react";
-import { CheckboxCircleLine } from "../icons/Icons";
+import { CheckboxCircleLine } from "../ui/icons/Icons";
 
 interface OTPInputProps {
   length?: number;
@@ -91,7 +91,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
               value={value[index] || ""}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-6 h-12 text-center text-R1 bg-transparent outline-none p-0 text-text-primary placeholder:text-gray-300"
+              className="w-6 h-12 text-center text-R1 bg-primary outline-none p-0 text-primary placeholder:text-secondary"
               placeholder="X"
             />
           ))}
@@ -114,7 +114,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
               value={value[index] || ""}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-6 h-12 text-center text-R1 bg-transparent outline-none p-0 text-text-primary placeholder:text-gray-300"
+              className="w-6 h-12 text-center text-R1 bg-primary outline-none p-0 text-primary placeholder:text-secondary"
               placeholder="X"
             />
           ))}

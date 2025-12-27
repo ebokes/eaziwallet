@@ -95,7 +95,7 @@ const Login: React.FC = () => {
           {/* <button
             type="button"
             onClick={() => setStep("phone")}
-            className="flex items-center text-sm text-text-secondary hover:text-primary transition-colors"
+            className="flex items-center text-sm text-secondary hover:text-primary transition-colors"
           >
             <ChevronLeft size={16} className="mr-1 flex justify-self-start" />{" "}
             Back
@@ -189,7 +189,7 @@ const Login: React.FC = () => {
 
             {step === "phone" && (
               <div className="text-center text-sm">
-                <span className="text-text-secondary">
+                <span className="text-secondary">
                   Don't have an account?{" "}
                 </span>
                 <Link

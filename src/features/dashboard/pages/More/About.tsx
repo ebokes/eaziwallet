@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import BackBtn from "../../../components/ui/BackBtn";
+import BackBtn from "../../../../components/ui/BackBtn";
 
 const About: React.FC = () => {
   const navigate = useNavigate();

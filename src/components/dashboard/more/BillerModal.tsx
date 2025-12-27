@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "../ui/Button";
-import { ResponsiveModal } from "../ui/ResponsiveModal";
-import { SecurePaymentLine } from "../icons/Icons";
+import { Button } from "../../ui/Button";
+import { ResponsiveModal } from "../../ui/ResponsiveModal";
+import { SecurePaymentLine } from "../../ui/icons/Icons";
 
 interface Biller {
   id: string;
@@ -42,8 +42,8 @@ export const BillerModal: React.FC<BillerModalProps> = ({
             {biller.icon}
           </div>
           <div className="flex flex-col">
-            <h3 className="text-text-primary text-B5">{biller.name}</h3>
-            <span className="text-slate-gray text-R6">{biller.type}</span>
+            <h3 className="text-primary text-B5">{biller.name}</h3>
+            <span className="text-secondary text-R6">{biller.type}</span>
           </div>
         </div>
       }
@@ -60,23 +60,21 @@ export const BillerModal: React.FC<BillerModalProps> = ({
 
         {/* Due Date */}
         {biller.dueDate && (
-          <div className="border border-alice-blue rounded-xl p-4">
-            <span className="text-R6 text-text-secondary block mb-1">
+          <div className="border border-light  rounded-xl p-4">
+            <span className="text-R6 text-secondary block mb-1">
               Due date
             </span>
-            <span className="text-R5 text-text-primary">
-              {biller.dueDate}
-            </span>
+            <span className="text-R5 text-primary">{biller.dueDate}</span>
           </div>
         )}
 
         {/* Registration Number */}
         {biller.registrationNo && (
-          <div className="border border-alice-blue rounded-xl p-4">
-            <span className="text-R6 text-text-secondary block mb-1">
+          <div className="border border-light rounded-xl p-4">
+            <span className="text-R6 text-secondary block mb-1">
               Registration no.
             </span>
-            <span className="text-R5 text-text-primary">
+            <span className="text-R5 text-primary">
               {biller.registrationNo}
             </span>
           </div>

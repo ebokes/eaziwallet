@@ -1,12 +1,11 @@
 import { SlidersHorizontal } from "lucide-react";
 import { useMemo, useState } from "react";
-import { TransactionList } from "../../../components/dashboard/home/TransactionList";
-import TransactionModal from "../../../components/dashboard/TransactionModal";
-import { Search2Line } from "../../../components/icons/Icons";
-import { Input } from "../../../components/ui/Input";
-import { useModal } from "../../../hooks/useModal";
-import { MOCK_TRANSACTIONS, type Transaction } from "../../../lib/constants";
-import { groupTransactionsByDate } from "../../../lib/utils";
+import { TransactionList } from "../../../../components/dashboard/home/TransactionList";
+import { SearchBar } from "../../../../components/ui/SearchBar";
+import { useModal } from "../../../../hooks/useModal";
+import { MOCK_TRANSACTIONS, type Transaction } from "../../../../lib/constants";
+import { groupTransactionsByDate } from "../../../../lib/utils";
+import TransactionModal from "../../../../components/dashboard/more/TransactionModal";
 
 const History = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -39,10 +38,9 @@ const History = () => {
   return (
     <div className="space-y-6">
       <h1 className="text-B2 mt-4 mx-4">History</h1>
-      <div className="flex gap-4 mx-4">
-        <Input
+      <div className="flex gap-4 mx-4 bg-primary">
+        <SearchBar
           placeholder="Search by name or amount"
-          leftIcon={<Search2Line />}
           className="flex-1"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -56,7 +54,7 @@ const History = () => {
             onChange={(e) =>
               setFilterType(e.target.value as "all" | "sent" | "received")
             }
-            className="appearance-none pl-10 pr-8 py-3.5 text-base rounded-md font-semibold transition-all duration-200 focus:outline-none cursor-pointer border border-azureish-white text-primary hover:bg-azureish-white/5 bg-transparent"
+            className="appearance-none pl-10 pr-8 py-3.5 text-base rounded-md font-semibold transition-all duration-200 focus:outline-none cursor-pointer border border-azureish-white text-primary hover:bg-azureish-white/5 bg-primary"
           >
             <option value="all">Filter: All</option>
             <option value="sent">Filter: Sent</option>
@@ -67,13 +65,13 @@ const History = () => {
 
       <div className="space-y-6 ">
         {Object.keys(groupedTransactions).length === 0 ? (
-          <div className="text-center py-10 text-text-secondary">
+          <div className="text-center py-10 text-secondary">
             No transactions found.
           </div>
         ) : (
           Object.entries(groupedTransactions).map(([date, transactions]) => (
             <div key={date}>
-              <h3 className="text-black-coral text-R5 font-medium mb-3 whitespace-pre-line mx-4">
+              <h3 className="text-primary text-R5 font-medium mb-3 whitespace-pre-line mx-4">
                 {date}
               </h3>
               <div className="mx-4">
@@ -82,17 +80,16 @@ const History = () => {
                   onTransactionClick={handleTransactionClick}
                 />
               </div>
-              <div className="bg-alice-blue h-2 mt-4"></div>
+              <div className="border-b-4 border-light h-2 mt-4"></div>
             </div>
           ))
         )}
-
       </div>
       <TransactionModal
         isOpen={openModal}
         onClose={handleModalClose}
         selectedTransaction={selectedTransaction}
-        />
+      />
     </div>
   );
 };

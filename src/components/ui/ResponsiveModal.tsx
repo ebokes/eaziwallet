@@ -41,7 +41,7 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
       {/* Modal Content */}
       <div
         className="
-        relative w-full md:max-w-md bg-white 
+        relative w-full md:max-w-md dark:bg-[#353535] bg-primary 
         rounded-t-3xl md:rounded-2xl 
         p-6 shadow-2xl 
         animate-slide-up md:animate-scale-in
@@ -53,7 +53,7 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
             <h3
               className={`${
                 bold ? "text-S5" : "R5"
-              } font-bold text-text-primary flex-1 md:text-left md:flex-auto"`}
+              } font-bold text-primary flex-1 md:text-left md:flex-auto"`}
             >
               {title}
             </h3>

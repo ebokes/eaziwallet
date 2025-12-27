@@ -1,11 +1,11 @@
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import { AddCardModal } from "../../../components/dashboard/AddCardModal";
-import { CreditCard } from "../../../components/dashboard/CreditCard";
-import { QrCodeLine, RssLine } from "../../../components/icons/Icons";
-import BackBtn from "../../../components/ui/BackBtn";
-import { Button } from "../../../components/ui/Button";
-import { INITIAL_CARDS, type Card } from "../../../lib/constants";
+import { AddCardModal } from "../../../../components/dashboard/card/AddCardModal";
+import { CreditCard } from "../../../../components/dashboard/card/CreditCard";
+import { INITIAL_CARDS, type Card } from "../../../../lib/constants";
+import { QrCodeLine, RssLine } from "../../../../components/ui/icons/Icons";
+import { Button } from "../../../../components/ui/Button";
+import BackBtn from "../../../../components/ui/BackBtn";
 
 // Mock Data
 export const Cards: React.FC = () => {

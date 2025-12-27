@@ -1,9 +1,11 @@
+import { LogOut, Moon, Sun } from "lucide-react";
 import React from "react";
-import { LogOut } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { HomeData, HistoryData, CardsData, MoreData } from "./NavIcons";
+import { useTheme } from "../../context/ThemeContext";
+import { CardsData, HistoryData, HomeData, MoreData } from "./NavIcons";
 
 export const Sidebar: React.FC = () => {
+  const {theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const navItems = [
     { iconData: HomeData, label: "Home", path: "/dashboard" },
@@ -19,8 +21,15 @@ export const Sidebar: React.FC = () => {
 
   return (
     <div className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 p-6 shadow-elevation-card">
-      <div className="mb-10 flex items-center gap-3">
-        <h1 className="text-xl font-bold text-text-primary">Eazi Wallet</h1>
+      <div className="mb-10 flex justify-between items-center gap-3">
+        <h1 className="text-xl font-bold text-primary">Eazi Wallet</h1>
+        <div className="cursor-pointer">
+          {theme === "dark" ? (
+            <Sun size={20} onClick={toggleTheme} />
+          ) : (
+            <Moon size={20} onClick={toggleTheme} />
+          )}
+        </div>
       </div>
       <nav className="flex-1 space-y-2">
         {navItems.map((item) => (
@@ -32,7 +41,7 @@ export const Sidebar: React.FC = () => {
               ${
                 isActive
                   ? "bg-majorelle-blue text-white shadow-elevation-low"
-                  : "text-text-secondary hover:text-primary hover:bg-majorelle-blue/30 "
+                  : "text-secondary hover:text-primary hover:bg-majorelle-blue/30 "
               }
             `}
           >

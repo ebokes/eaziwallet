@@ -8,7 +8,7 @@ const BackBtn = ({ onClick }: { onClick?: () => void }) => {
       <button
         type="button"
         onClick={onClick || (() => navigate(-1))}
-        className="flex items-center text-sm text-text-secondary hover:text-primary transition-colors"
+        className="flex items-center text-sm text-secondary hover:text-primary transition-colors"
       >
         <ChevronLeft size={16} className="mr-1 flex justify-self-start" /> Back
       </button>

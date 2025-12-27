@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../../components/ui/Button";
-import failure from "../../../assets/dashboard/failure.png"
+import { Button } from "../../../../components/ui/Button";
+import failure from "../../../../assets/dashboard/failure.png"
 
 const TransferFailed: React.FC = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const TransferFailed: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 py-8">
+    <div className="min-h-screen bg-pale-pink dark:bg-secondary flex flex-col items-center justify-center px-6 py-8">
       <div className="max-w-md w-full">
         {/* Failure Image */}
         <div className="flex justify-center mb-6">

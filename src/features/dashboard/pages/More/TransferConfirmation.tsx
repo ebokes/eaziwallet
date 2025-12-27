@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SecurePaymentLine } from "../../../components/icons/Icons";
-import BackBtn from "../../../components/ui/BackBtn";
-import { Button } from "../../../components/ui/Button";
+import { SecurePaymentLine } from "../../../../components/ui/icons/Icons";
+import BackBtn from "../../../../components/ui/BackBtn";
+import { Button } from "../../../../components/ui/Button";
 
 interface Contact {
   id: string;
@@ -24,13 +24,13 @@ const TransferConfirmation: React.FC = () => {
   };
 
   const handlePayment = () => {
-      navigate("/transfer-failed", {
-        state: {
-          biller: contact.name,
-          amount: `$${amount.toFixed(2)}`,
-          transactionNo: Math.random().toString(36).substring(2, 15),
-        },
-      });
+    navigate("/transfer-failed", {
+      state: {
+        biller: contact.name,
+        amount: `$${amount.toFixed(2)}`,
+        transactionNo: Math.random().toString(36).substring(2, 15),
+      },
+    });
   };
 
   return (
@@ -55,17 +55,17 @@ const TransferConfirmation: React.FC = () => {
               />
             </div>
             <div className="flex flex-col">
-              <p className="text-B5 text-text-primary">{contact.name}</p>
-              <p className="text-R6 text-text-secondary">{contact.phone}</p>
+              <p className="text-B5 text-primary">{contact.name}</p>
+              <p className="text-R6 text-secondary">{contact.phone}</p>
             </div>
           </div>
 
           {/* Amount Display */}
           <div className="mb-16">
-            <p className="text-R7 text-text-secondary text-center mb-2">
+            <p className="text-R7 text-secondary text-center mb-2">
               Enter Amount
             </p>
-            <p className="text-R1 text-text-primary text-center">
+            <p className="text-R1 text-primary text-center">
               ${amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}
             </p>
           </div>

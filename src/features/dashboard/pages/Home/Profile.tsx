@@ -2,18 +2,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import ahmed from "../../../assets/dashboard/ahmed.png";
+import ahmed from "../../../../assets/dashboard/ahmed.png"
 import {
-    ArrowRightSLine,
-    MailOpenLine,
-    ShieldCheckFill,
-    SmartphoneLine,
-    User6Line
-} from "../../../components/icons/Icons";
-import BackBtn from "../../../components/ui/BackBtn";
-import { Button } from "../../../components/ui/Button";
-import { Input } from "../../../components/ui/Input";
-import { profileSchema, type ProfileSchema } from "../schemas/profileSchema";
+  ArrowRightSLine,
+  MailOpenLine,
+  ShieldCheckFill,
+  SmartphoneLine,
+  User6Line,
+} from "../../../../components/ui/icons/Icons";
+import BackBtn from "../../../../components/ui/BackBtn";
+import { Button } from "../../../../components/ui/Button";
+import { Input } from "../../../../components/ui/Input";
+import { profileSchema, type ProfileSchema } from "../../schemas/profileSchema";
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
@@ -68,18 +68,16 @@ const Profile: React.FC = () => {
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-8">
           <div className="relative mb-4">
-            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div className="w-24 h-24 rounded-full overflow-hidden border-2 p-[2px] border-verdigris shadow-lg">
               <img
                 src={ahmed}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
             </div>
-            <ShieldCheckFill className=" absolute bottom-0 right-0 w-6 h-6 text-shamrock rounded-full flex items-center justify-center" />
+            <ShieldCheckFill className=" absolute bottom-0 right-0 w-6 h-6 text-verdigris rounded-full flex items-center justify-center" />
           </div>
-          <h2 className="text-B6 text-gray-900 mb-1">
-            Abdullah Ghatasheh
-          </h2>
+          <h2 className="text-B6 text-gray-900 mb-1">Abdullah Ghatasheh</h2>
           <p className="text-R7 text-slate-gray">Joined 2 years ago</p>
         </div>
 
@@ -91,7 +89,7 @@ const Profile: React.FC = () => {
               <div className="w-10 h-10 rounded-md bg-lavender flex items-center justify-center flex-shrink-0">
                 <User6Line className="w-5 h-5 text-ocean-blue" />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 ">
                 {editingField === "fullName" ? (
                   <Controller
                     name="fullName"
@@ -107,7 +105,7 @@ const Profile: React.FC = () => {
                   />
                 ) : (
                   <>
-                    <p className="text-xs text-slate-gray mb-1">Full name</p>
+                    <p className="text-xs text-primary mb-1">Full name</p>
                     <Controller
                       name="fullName"
                       control={control}
@@ -130,7 +128,7 @@ const Profile: React.FC = () => {
               ) : (
                 <button
                   type="button"
-                  onClick={() => handleEdit("fullName")}
+                  // onClick={() => handleEdit("fullName")}
                   className="text-celtic-blue font-medium text-sm hover:underline"
                 >
                   Edit
@@ -184,7 +182,7 @@ const Profile: React.FC = () => {
               ) : (
                 <button
                   type="button"
-                  onClick={() => handleEdit("mobile")}
+                  // onClick={() => handleEdit("mobile")}
                   className="text-celtic-blue font-medium text-sm hover:underline"
                 >
                   Edit
@@ -239,7 +237,7 @@ const Profile: React.FC = () => {
               ) : (
                 <button
                   type="button"
-                  onClick={() => handleEdit("email")}
+                  // onClick={() => handleEdit("email")}
                   className="text-celtic-blue font-medium text-sm hover:underline"
                 >
                   Edit

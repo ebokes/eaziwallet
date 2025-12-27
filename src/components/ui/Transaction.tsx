@@ -11,7 +11,7 @@ const TransactionItem = ({ transaction: t }: TransactionProps) => {
         <img src={t.logo} alt={t.name} className="w-full h-full object-cover" />
       </div>
       <div className="flex flex-col">
-        <span className="text-text-primary text-B7 md:text-B6">{t.name}</span>
+        <span className="text-primary text-B7 md:text-B6">{t.name}</span>
         <span className="text-xs text-slate-gray">
           {new Date(t.date).getTime() > new Date().setHours(0, 0, 0, 0)
             ? "Today "

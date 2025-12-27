@@ -1,6 +1,6 @@
 import React from "react";
 import { type Transaction as TransactionType } from "../../../lib/constants";
-import { TransactionRow } from "./TransactionRow";
+import { TransactionRow } from "../TransactionRow";
 
 interface TransactionListProps {
   transactions: TransactionType[];
@@ -13,7 +13,7 @@ export const TransactionList: React.FC<TransactionListProps> = ({
 }) => {
   if (transactions.length === 0) {
     return (
-      <div className="px-6 py-10 text-center text-text-secondary">
+      <div className="px-6 py-10 text-center text-secondary">
         No transactions found matching your criteria.
       </div>
     );

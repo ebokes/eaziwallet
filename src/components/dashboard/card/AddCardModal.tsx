@@ -1,14 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import type { Card } from "../../lib/constants";
+import type { Card } from "../../../lib/constants";
 import {
   addCardSchema,
   type AddCardSchema,
-} from "../../features/dashboard/schemas/addCardSchema";
-import { Button } from "../ui/Button";
-import { Input } from "../ui/Input";
-import { ResponsiveModal } from "../ui/ResponsiveModal";
+} from "../../../features/dashboard/schemas/addCardSchema";
+import { Button } from "../../ui/Button";
+import { Input } from "../../ui/Input";
+import { ResponsiveModal } from "../../ui/ResponsiveModal";
 
 interface AddCardModalProps {
   isOpen: boolean;

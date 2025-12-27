@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import { DownloadLine, ExchangeFundsLine, UploadLine } from "../../icons/Icons";
+import {
+  DownloadLine,
+  ExchangeFundsLine,
+  UploadLine,
+} from "../../ui/icons/Icons";
 
 interface BalanceCardProps {
   balance: string;
@@ -16,7 +20,7 @@ const BalanceCard = ({ balance }: BalanceCardProps) => {
       </div>
 
       <div className="flex justify-between items-center px-4 md:justify-center md:gap-16">
-        <Link to="/top-up"  className="flex flex-col items-center gap-2 group">
+        <Link to="/top-up" className="flex flex-col items-center gap-2 group">
           <div className="w-10 h-10 flex items-center justify-center">
             <UploadLine className="group-hover:-translate-y-1 transition-transform" />
           </div>
@@ -25,16 +29,16 @@ const BalanceCard = ({ balance }: BalanceCardProps) => {
 
         <div className="w-px h-10 bg-white/20"></div>
 
-        <Link to="/withdraw"  className="flex flex-col items-center gap-2 group">
+        <Link to="/withdraw" className="flex flex-col items-center gap-2 group">
           <div className="w-10 h-10 flex items-center justify-center">
-            <DownloadLine className="group-hover:translate-y-1 transition-transform text-text-primary" />
+            <DownloadLine className="group-hover:translate-y-1 transition-transform text-white" />
           </div>
           <span className="text-sm font-medium">Withdraw</span>
         </Link>
 
         <div className="w-px h-10 bg-white/20"></div>
 
-        <Link to="/transfer"  className="flex flex-col items-center gap-2 group">
+        <Link to="/transfer" className="flex flex-col items-center gap-2 group">
           <div className="w-10 h-10 flex items-center justify-center">
             <ExchangeFundsLine className="group-hover:rotate-180 transition-transform duration-500" />
           </div>

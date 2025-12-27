@@ -2,9 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
-import BackBtn from "../../../components/ui/BackBtn";
-import { Button } from "../../../components/ui/Button";
-import { transferSchema, type TransferSchema } from "../schemas/transferSchema";
+import BackBtn from "../../../../components/ui/BackBtn";
+import { Button } from "../../../../components/ui/Button";
+import { transferSchema, type TransferSchema } from "../../schemas/transferSchema";
 
 interface Contact {
   id: string;
@@ -71,14 +71,14 @@ const TransferAmount: React.FC = () => {
             </div>
             <div className="flex flex-col">
 
-            <p className="text-B5 text-text-primary">{contact.name}</p>
-            <p className="text-R6 text-text-secondary">{contact.phone}</p>
+            <p className="text-B5 text-primary">{contact.name}</p>
+            <p className="text-R6 text-secondary">{contact.phone}</p>
             </div>
           </div>
 
           {/* Amount Input */}
           <div className="mb-12 w-full max-w-xs mx-auto">
-            <p className="text-R7 text-text-secondary text-center mb-4">
+            <p className="text-R7 text-secondary text-center mb-4">
               Enter Amount
             </p>
             <div className="relative flex items-center justify-center">
@@ -93,7 +93,7 @@ const TransferAmount: React.FC = () => {
                 value={amount}
                 onChange={handleAmountChange}
                 placeholder="$0.00"
-                className="w-60 px-2 py-4 text-5xl font-light text-center border-b-2 border-indigo bg-transparent focus:outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                className="w-60 px-2 py-4 text-R1 text-center border-b-2 border-indigo bg-primary focus:outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
                 autoFocus
               />
             </div>

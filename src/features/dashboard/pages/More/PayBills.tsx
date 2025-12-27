@@ -1,17 +1,18 @@
-import { Plus, Search } from "lucide-react";
+import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BillerModal } from "../../../components/dashboard/BillerModal";
-import {
-  BillerItem,
-  type Biller,
-} from "../../../components/dashboard/BillerItem";
+import { BillerModal } from "../../../../components/dashboard/more/BillerModal";
 import {
   DropLine,
   LightbulbFlashLine,
   SignalTowerLine,
-} from "../../../components/icons/Icons";
-import BackBtn from "../../../components/ui/BackBtn";
+} from "../../../../components/ui/icons/Icons";
+import BackBtn from "../../../../components/ui/BackBtn";
+import { SearchBar } from "../../../../components/ui/SearchBar";
+import {
+  BillerItem,
+  type Biller,
+} from "../../../../components/dashboard/more/BillerItem";
 
 const SAVED_BILLERS: Biller[] = [
   {
@@ -80,7 +81,7 @@ const PayBills: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-primary">
       <div className="max-w-3xl mx-auto px-6 py-6 md:px-8 md:py-8">
         {/* Header */}
         <div className="mb-8">
@@ -91,37 +92,35 @@ const PayBills: React.FC = () => {
         <h1 className="text-R2 mb-8">Pay to</h1>
 
         {/* New Biller Button */}
-        <button className="w-full flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm mb-4 hover:bg-gray-50 transition-colors">
+        <button className="w-full flex items-center gap-4 p-4 bg-primary rounded-2xl shadow-sm mb-4 hover:bg-secondary transition-colors">
           <div className="w-12 h-12 rounded-full bg-lavender flex items-center justify-center flex-shrink-0">
             <Plus className="w-6 h-6 text-ocean-blue" />
           </div>
-          <span className="text-R7 md:text-R6 text-text-primary">New biller</span>
+          <span className="text-R7 md:text-R6 text-primary">
+            New biller
+          </span>
         </button>
 
         {/* Divider */}
         <div className="flex items-center gap-2">
-          <hr className="w-full border-alice-blue" />
-          <div className="text-center text-slate-gray text-R7 md:text-R6 my-6">
+          <hr className="w-full border-light" />
+          <div className="text-center text-secondary text-R7 md:text-R6 my-6">
             or
           </div>
-          <hr className="w-full border-alice-blue" />
+          <hr className="w-full border-light" />
         </div>
 
         {/* Search */}
-        <div className="relative mb-6">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search biller"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 bg-white border border-alice-blue rounded-xl text-R6 focus:outline-none focus:ring-2 focus:ring-indigo focus:border-transparent"
-          />
-        </div>
+        <SearchBar
+          placeholder="Search biller"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="mb-6"
+        />
 
         {/* Saved Billers */}
         <div className="mb-4">
-          <h2 className="text-R7 md:text-R6 text-black-coral mb-4">
+          <h2 className="text-R7 md:text-R6 text-primary mb-4">
             Saved billers
           </h2>
           <div className="space-y-3">
