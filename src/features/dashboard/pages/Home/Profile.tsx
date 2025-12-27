@@ -38,9 +38,9 @@ const Profile: React.FC = () => {
     navigate(-1);
   };
 
-  const handleEdit = (field: string) => {
-    setEditingField(field);
-  };
+  // const handleEdit = (field: string) => {
+  //   setEditingField(field);
+  // };
 
   const handleSave = (data: ProfileSchema) => {
     console.log("Saving profile:", data);
