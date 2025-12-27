@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Mobile from "../../../assets/auth/mobile-phone.png";
 import Secure from "../../../assets/auth/secure.png";
@@ -8,6 +8,7 @@ import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
 import SocialIcons from "../../../components/auth/SocialIcons";
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
+import { PhoneInput } from "../../../components/ui/PhoneInput";
 import { ResponsiveModal } from "../../../components/ui/ResponsiveModal";
 import {
   forgotPasswordSchema,
@@ -15,8 +16,6 @@ import {
   type ForgotPasswordSchema,
   type LoginSchema,
 } from "../schemas/loginSchema";
-import { PhoneInput } from "../../../components/ui/PhoneInput";
-import { ChevronLeft } from "lucide-react";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();

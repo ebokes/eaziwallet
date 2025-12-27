@@ -47,7 +47,7 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({
     }
   }, [isOpen, reset]);
 
-  const onSubmit = (data: AddCardSchema) => {
+  const onSubmit = (_data: AddCardSchema) => {
     setIsLoading(true);
     // Simulate API call
     setTimeout(() => {
