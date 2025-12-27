@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import AuthHeader from "../../../components/auth/AuthHeader";
 import { OTPInput } from "../../../components/auth/OTPInput";
@@ -16,9 +16,8 @@ type OtpSchema = z.infer<typeof otpSchema>;
 
 const OTPVerification: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const email = location.state?.email || "999"; // Fallback for preview
-  // Mocking phone number display based on design (usually passed from previous step)
+  // const location = useLocation();
+  // const email = location.state?.email || "999";
   const phoneNumber = "+962 79 XXX-XXXX";
 
   const [timer, setTimer] = useState(59);
@@ -88,8 +87,6 @@ const OTPVerification: React.FC = () => {
                 value={field.value}
                 onChange={(val) => {
                   field.onChange(val);
-                  // Auto-submit could go here if requirement changes,
-                  // but design has a Done button.
                 }}
               />
             )}

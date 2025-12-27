@@ -1,10 +1,9 @@
 import React, {
-  useRef,
   useEffect,
+  useRef,
   type ChangeEvent,
   type KeyboardEvent,
 } from "react";
-import { CheckCircle2 } from "lucide-react";
 import { CheckboxCircleLine } from "../icons/Icons";
 
 interface OTPInputProps {
@@ -18,7 +17,6 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   length = 6,
   value,
   onChange,
-  error,
 }) => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 

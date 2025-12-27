@@ -4,12 +4,11 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ahmed from "../../../assets/dashboard/ahmed.png";
 import {
-  ArrowRightSLine,
-  CheckLine,
-  MailOpenLine,
-  ShieldCheckFill,
-  SmartphoneLine,
-  User6Line,
+    ArrowRightSLine,
+    MailOpenLine,
+    ShieldCheckFill,
+    SmartphoneLine,
+    User6Line
 } from "../../../components/icons/Icons";
 import BackBtn from "../../../components/ui/BackBtn";
 import { Button } from "../../../components/ui/Button";

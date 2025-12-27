@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { DownloadLine, ExchangeFundsLine, UploadLine } from "../../icons/Icons";
-import { Button } from "../../ui/Button";
 
 interface BalanceCardProps {
   balance: string;
