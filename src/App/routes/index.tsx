@@ -44,19 +44,20 @@ export default function AppRoutes() {
           <Route path="/history" element={<History />} />
           <Route path="/cards" element={<Cards />} />
           <Route path="/more" element={<More />} />
+
+          {/* Sub-pages without bottom nav (Handled by Layout logic) */}
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/pay-bills" element={<PayBills />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/transfer-amount" element={<TransferAmount />} />
+          <Route
+            path="/transfer-confirmation"
+            element={<TransferConfirmation />}
+          />
+          <Route path="/transfer-failed" element={<TransferFailed />} />
         </Route>
-        {/* Pages without bottom nav */}
-        <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/pay-bills" element={<PayBills />} />
-        <Route path="/payment-success" element={<PaymentSuccess />} />
-        <Route path="/transfer" element={<Transfer />} />
-        <Route path="/transfer-amount" element={<TransferAmount />} />
-        <Route
-          path="/transfer-confirmation"
-          element={<TransferConfirmation />}
-        />
-        <Route path="/transfer-failed" element={<TransferFailed />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

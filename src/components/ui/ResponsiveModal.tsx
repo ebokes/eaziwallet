@@ -1,4 +1,5 @@
-import React, { type ReactNode } from "react";
+import React, { useEffect, type ReactNode } from "react";
+import { useUi } from "../../context/UiContext";
 import { Button } from "./Button";
 
 interface ResponsiveModalProps {
@@ -13,9 +14,23 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
   isOpen,
   onClose,
   children,
-    title,
+  title,
   bold = true,
 }) => {
+  const { setIsModalActive } = useUi();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsModalActive(true);
+    } else {
+      setIsModalActive(false);
+    }
+
+    return () => {
+      setIsModalActive(false);
+    };
+  }, [isOpen, setIsModalActive]);
+
   if (!isOpen) return null;
 
   return (
@@ -35,12 +50,18 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
         <div className="flex items-center justify-between mb-6">
           <div className=" md:hidden"></div>{" "}
           {title && (
-            <h3 className={`${bold ? "text-S5" : "R5"} font-bold text-text-primary flex-1 md:text-left md:flex-auto"`}>
+            <h3
+              className={`${
+                bold ? "text-S5" : "R5"
+              } font-bold text-text-primary flex-1 md:text-left md:flex-auto"`}
+            >
               {title}
             </h3>
           )}
           <Button
-            onClick={onClose} variant="ghost" size="xs"
+            onClick={onClose}
+            variant="ghost"
+            size="xs"
             className="p-2 text-celtic-blue text-B6 rounded-full"
           >
             Done

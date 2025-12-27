@@ -1,8 +1,11 @@
 import AppRoutes from "./App/routes";
+import { UiProvider } from "./context/UiContext";
 
 function App() {
   return (
-   <AppRoutes/>
+    <UiProvider>
+      <AppRoutes />
+    </UiProvider>
   );
 }
 
