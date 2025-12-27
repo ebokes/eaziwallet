@@ -1,11 +1,11 @@
 import { SlidersHorizontal } from "lucide-react";
 import { useMemo, useState } from "react";
-import { TransactionList } from "../../../../components/dashboard/home/TransactionList";
+import { TransactionList } from "../../components/home/TransactionList";
 import { SearchBar } from "../../../../components/ui/SearchBar";
-import { useModal } from "../../../../hooks/useModal";
-import { MOCK_TRANSACTIONS, type Transaction } from "../../../../lib/constants";
-import { groupTransactionsByDate } from "../../../../lib/utils";
-import TransactionModal from "../../../../components/dashboard/more/TransactionModal";
+import { useModal } from "../../hooks/useModal";
+import { MOCK_TRANSACTIONS, type Transaction } from "../../lib/constants";
+import { groupTransactionsByDate } from "../../lib/utils";
+import TransactionModal from "../../components/more/TransactionModal";
 
 const History = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -36,16 +36,16 @@ const History = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="">
       <h1 className="text-B2 mt-4 mx-4">History</h1>
-      <div className="flex gap-4 mx-4 bg-primary">
+      <div className="flex gap-4 mx-4 my-5 bg-primary">
         <SearchBar
           placeholder="Search by name or amount"
           className="flex-1"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <div className="relative">
+        <div className="relative max-w-[200px]">
           <div className="absolute left-3 top-1/2 -translate-y-1/2 text-primary pointer-events-none">
             <SlidersHorizontal size={20} />
           </div>

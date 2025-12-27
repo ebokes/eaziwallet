@@ -1,7 +1,7 @@
 import React from "react";
-import { type Transaction } from "../../lib/constants";
-import { ArrowDropRightLine } from "../ui/icons/Icons";
-import TransactionItem from "../ui/Transaction";
+import { type Transaction } from "../lib/constants";
+import { ArrowDropRightLine } from "../../../components/ui/icons/Icons";
+import TransactionItem from "../../../components/ui/Transaction";
 
 interface TransactionRowProps {
   transaction: Transaction;

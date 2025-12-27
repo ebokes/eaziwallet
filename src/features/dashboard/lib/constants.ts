@@ -1,15 +1,15 @@
-import wallmart from "../assets/dashboard/Wallmart.png";
-import topup from "../assets/dashboard/Topup.png";
-import netflix from "../assets/dashboard/Netflix.png";
-import amazon from "../assets/dashboard/Amazon.png";
-import nike from "../assets/dashboard/Nike.png";
-import homeDepot from "../assets/dashboard/The home depot.png";
-import ali from "../assets/dashboard/ali.png";
-import apple from "../assets/dashboard/Apple.png";
+import wallmart from "../../../assets/dashboard/Wallmart.png";
+import topup from "../../../assets/dashboard/Topup.png";
+import netflix from "../../../assets/dashboard/Netflix.png";
+import amazon from "../../../assets/dashboard/Amazon.png";
+import nike from "../../../assets/dashboard/Nike.png";
+import homeDepot from "../../../assets/dashboard/The home depot.png";
+import ali from "../../../assets/dashboard/ali.png";
+import apple from "../../../assets/dashboard/Apple.png";
 import { getMockDate } from "./utils";
-import card1 from "../assets/dashboard/Card 1.png";
-import card2 from "../assets/dashboard/Card 2.png";
-import card3 from "../assets/dashboard/Card 3.png";
+import card1 from "../../../assets/dashboard/Card 1.png";
+import card2 from "../../../assets/dashboard/Card 2.png";
+import card3 from "../../../assets/dashboard/Card 3.png";
 
 export interface Card {
   id: number;

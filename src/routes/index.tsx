@@ -1,32 +1,37 @@
 import { lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { Layout } from "../../layouts/Layout";
+import { Layout } from "../features/dashboard/layout";
+// import splash from "../features/auth/pages/Splash"
 
-const Splash = lazy(() => import("../../features/auth/pages/Splash"));
-const Login = lazy(() => import("../../features/auth/pages/Login"));
-const SignUp = lazy(() => import("../../features/auth/pages/SignUp"));
-const OTP = lazy(() => import("../../features/auth/pages/Otp"));
+const Splash = lazy(() => import("../features/auth/pages/Splash"));
+const Login = lazy(() => import("../features/auth/pages/Login"));
+const SignUp = lazy(() => import("../features/auth/pages/SignUp"));
+const OTP = lazy(() => import("../features/auth/pages/Otp"));
 const Dashboard = lazy(
-  () => import("../../features/dashboard/pages/Home/Dashboard")
+  () => import("../features/dashboard/pages/Home/Dashboard")
 );
-const History = lazy(() => import("../../features/dashboard/pages/History/History"));
-const More = lazy(() => import("../../features/dashboard/pages/More/More"));
-const Cards = lazy(() => import("../../features/dashboard/pages/Card/Cards"));
-const About = lazy(() => import("../../features/dashboard/pages/More/About"));
-const Profile = lazy(() => import("../../features/dashboard/pages/Home/Profile"));
-const PayBills = lazy(() => import("../../features/dashboard/pages/More/PayBills"));
+const History = lazy(() => import("../features/dashboard/pages/History"));
+const More = lazy(() => import("../features/dashboard/pages/More/More"));
+const Cards = lazy(() => import("../features/dashboard/pages/Card"));
+const About = lazy(() => import("../features/dashboard/pages/More/About"));
+const Profile = lazy(() => import("../features/dashboard/pages/Home/Profile"));
+const PayBills = lazy(
+  () => import("../features/dashboard/pages/More/PayBills")
+);
 const PaymentSuccess = lazy(
-  () => import("../../features/dashboard/pages/More/PaymentSuccess")
+  () => import("../features/dashboard/pages/More/PaymentSuccess")
 );
-const Transfer = lazy(() => import("../../features/dashboard/pages/More/Transfer"));
+const Transfer = lazy(
+  () => import("../features/dashboard/pages/More/Transfer")
+);
 const TransferAmount = lazy(
-  () => import("../../features/dashboard/pages/More/TransferAmount")
+  () => import("../features/dashboard/pages/More/TransferAmount")
 );
 const TransferConfirmation = lazy(
-  () => import("../../features/dashboard/pages/More/TransferConfirmation")
+  () => import("../features/dashboard/pages/More/TransferConfirmation")
 );
 const TransferFailed = lazy(
-  () => import("../../features/dashboard/pages/More/TransferFailed")
+  () => import("../features/dashboard/pages/More/TransferFailed")
 );
 
 export default function AppRoutes() {

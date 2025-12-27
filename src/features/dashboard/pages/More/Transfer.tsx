@@ -4,10 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ahmed from "../../../../assets/dashboard/ahmed.png";
 import ali from "../../../../assets/dashboard/ali.png";
 import steve from "../../../../assets/dashboard/steve.png";
-import {
-  ContactItem,
-  type Contact,
-} from "../../../../components/dashboard/more/ContactItem";
+import { ContactItem, type Contact } from "../../components/more/ContactItem";
 import BackBtn from "../../../../components/ui/BackBtn";
 import { SearchBar } from "../../../../components/ui/SearchBar";
 
@@ -84,9 +81,7 @@ const Transfer: React.FC = () => {
           <div className="w-12 h-12 rounded-full bg-lavender flex items-center justify-center flex-shrink-0">
             <Plus className="w-6 h-6 text-ocean-blue" />
           </div>
-          <span className="text-R7 md:text-R6 text-primary">
-            New contact
-          </span>
+          <span className="text-R7 md:text-R6 text-primary">New contact</span>
         </button>
 
         {/* Divider */}

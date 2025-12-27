@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BillerModal } from "../../../../components/dashboard/more/BillerModal";
+import { BillerModal } from "../../components/more/BillerModal";
 import {
   DropLine,
   LightbulbFlashLine,
@@ -9,10 +9,7 @@ import {
 } from "../../../../components/ui/icons/Icons";
 import BackBtn from "../../../../components/ui/BackBtn";
 import { SearchBar } from "../../../../components/ui/SearchBar";
-import {
-  BillerItem,
-  type Biller,
-} from "../../../../components/dashboard/more/BillerItem";
+import { BillerItem, type Biller } from "../../components/more/BillerItem";
 
 const SAVED_BILLERS: Biller[] = [
   {
@@ -96,9 +93,7 @@ const PayBills: React.FC = () => {
           <div className="w-12 h-12 rounded-full bg-lavender flex items-center justify-center flex-shrink-0">
             <Plus className="w-6 h-6 text-ocean-blue" />
           </div>
-          <span className="text-R7 md:text-R6 text-primary">
-            New biller
-          </span>
+          <span className="text-R7 md:text-R6 text-primary">New biller</span>
         </button>
 
         {/* Divider */}

@@ -2,16 +2,16 @@ import { Plus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Avartar3 from "../../../../assets/dashboard/ahmed.png";
-import Avartar from "../../../../assets/dashboard/ali.png"
-import Avartar1 from "../../../../assets/dashboard/ali.png"
+import Avartar from "../../../../assets/dashboard/ali.png";
+import Avartar1 from "../../../../assets/dashboard/ali.png";
 import Avartar2 from "../../../../assets/dashboard/steve.png";
-import BalanceCard from "../../../../components/dashboard/home/BalanceCard";
-import { TransactionList } from "../../../../components/dashboard/home/TransactionList";
+import BalanceCard from "../../components/home/BalanceCard";
+import { TransactionList } from "../../components/home/TransactionList";
 import { Settings3Line } from "../../../../components/ui/icons/Icons";
 import { Button } from "../../../../components/ui/Button";
-import { MOCK_TRANSACTIONS, type Transaction } from "../../../../lib/constants";
-import { formatCurrency } from "../../../../lib/utils";
-import TransactionModal from "../../../../components/dashboard/more/TransactionModal";
+import { MOCK_TRANSACTIONS, type Transaction } from "../../lib/constants";
+import { formatCurrency } from "../../lib/utils";
+import TransactionModal from "../../components/more/TransactionModal";
 
 // Mock Data for Transfers
 const RECENT_TRANSFERS = [
@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col pb-20 md:pb-0">
+    <div className="bg-primary flex flex-col pb-0 md:pb-0">
       {/* Top Section (Indigo Background) */}
       <div className="bg-indigo px-6 pt-12 pb-8 rounded-b-3xl">
         {/* Header */}

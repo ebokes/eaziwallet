@@ -1,11 +1,11 @@
 import { LogOut, Moon, Sun } from "lucide-react";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../../context/ThemeContext";
 import { CardsData, HistoryData, HomeData, MoreData } from "./NavIcons";
 
 export const Sidebar: React.FC = () => {
-  const {theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const navItems = [
     { iconData: HomeData, label: "Home", path: "/dashboard" },

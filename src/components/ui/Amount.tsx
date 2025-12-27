@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { type Transaction } from "../../lib/constants";
+import { type Transaction } from "../../features/dashboard/lib/constants";
 
 const Amount = ({ t }: { t: Transaction }) => {
   return (

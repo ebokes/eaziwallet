@@ -3,7 +3,7 @@ import {
   DownloadLine,
   ExchangeFundsLine,
   UploadLine,
-} from "../../ui/icons/Icons";
+} from "../../../../components/ui/icons/Icons";
 
 interface BalanceCardProps {
   balance: string;

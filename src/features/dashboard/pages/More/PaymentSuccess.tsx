@@ -6,7 +6,7 @@ import {
   FileCopyLine,
   FlagLine,
 } from "../../../../components/ui/icons/Icons";
-import { useCopy } from "../../../../hooks/useCopy";
+import { useCopy } from "../../hooks/useCopy";
 import { Button } from "../../../../components/ui/Button";
 
 const PaymentSuccess: React.FC = () => {

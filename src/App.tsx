@@ -1,4 +1,4 @@
-import AppRoutes from "./App/routes";
+import AppRoutes from "./routes";
 import { UiProvider } from "./context/UiContext";
 
 function App() {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Sidebar } from "../components/dashboard/Sidebar";
-import { BottomNav } from "../components/dashboard/BottomNav";
-import { useUi } from "../context/UiContext";
+import { Sidebar } from "../components/Sidebar";
+import { BottomNav } from "../components/BottomNav";
+import { useUi } from "../../../context/UiContext";
 
 export const Layout: React.FC = () => {
   const location = useLocation();
@@ -25,6 +25,7 @@ export const Layout: React.FC = () => {
         </div>
       </main>
       {shouldShowNav && !isModalActive && <BottomNav />}
+      {/* <div className="h-[60px] bg-primary"></div> */}
     </div>
   );
 };

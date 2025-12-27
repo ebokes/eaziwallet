@@ -1,5 +1,5 @@
 import React from "react";
-import { type Transaction as TransactionType } from "../../../lib/constants";
+import { type Transaction as TransactionType } from "../../lib/constants";
 import { TransactionRow } from "../TransactionRow";
 
 interface TransactionListProps {

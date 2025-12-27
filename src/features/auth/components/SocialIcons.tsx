@@ -1,5 +1,8 @@
-import { AppleIcon, FacebookIcon, GoogleIcon } from "../ui/icons/Icons";
-
+import {
+  AppleIcon,
+  FacebookIcon,
+  GoogleIcon,
+} from "../../../components/ui/icons/Icons";
 
 const SocialIcons = () => {
   return (
@@ -26,7 +29,7 @@ const SocialIcons = () => {
           type="button"
           className="grid place-items-center p-3 border border-light w-full rounded-xl hover:bg-gray-50"
         >
-          <AppleIcon  />
+          <AppleIcon />
         </button>
       </div>
     </div>

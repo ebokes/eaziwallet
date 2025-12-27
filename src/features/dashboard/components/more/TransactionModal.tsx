@@ -1,9 +1,13 @@
-import { useCopy } from "../../../hooks/useCopy";
-import type { Transaction } from "../../../lib/constants";
-import { formatDetailedDate } from "../../../lib/utils";
-import { CheckLine, FileCopyLine, FlagLine } from "../../ui/icons/Icons";
-import { Button } from "../../ui/Button";
-import { ResponsiveModal } from "../../ui/ResponsiveModal";
+import { useCopy } from "../../hooks/useCopy";
+import type { Transaction } from "../../lib/constants";
+import { formatDetailedDate } from "../../lib/utils";
+import {
+  CheckLine,
+  FileCopyLine,
+  FlagLine,
+} from "../../../../components/ui/icons/Icons";
+import { Button } from "../../../../components/ui/Button";
+import { ResponsiveModal } from "../../../../components/ui/ResponsiveModal";
 
 interface TransactionModalProps {
   isOpen: boolean;
@@ -25,7 +29,7 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
       title={
         selectedTransaction ? (
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center overflow-hidden">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden">
               <img
                 src={selectedTransaction.logo}
                 alt={selectedTransaction.name}

@@ -1,4 +1,4 @@
-import type { Transaction } from "../../lib/constants";
+import type { Transaction } from "../../features/dashboard/lib/constants";
 
 interface TransactionProps {
   transaction: Transaction;

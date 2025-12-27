@@ -41,7 +41,7 @@ export const ResponsiveModal: React.FC<ResponsiveModalProps> = ({
       {/* Modal Content */}
       <div
         className="
-        relative w-full md:max-w-md dark:bg-[#353535] bg-primary 
+        relative w-full md:max-w-md dark:bg-[#181739] bg-primary 
         rounded-t-3xl md:rounded-2xl 
         p-6 shadow-2xl 
         animate-slide-up md:animate-scale-in

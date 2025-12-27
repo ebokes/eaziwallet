@@ -4,7 +4,7 @@ import React, {
   type ChangeEvent,
   type KeyboardEvent,
 } from "react";
-import { CheckboxCircleLine } from "../ui/icons/Icons";
+import { CheckboxCircleLine } from "../../../components/ui/icons/Icons";
 
 interface OTPInputProps {
   length?: number;

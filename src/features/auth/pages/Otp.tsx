@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-import AuthHeader from "../../../components/auth/AuthHeader";
-import { OTPInput } from "../../../components/auth/OTPInput";
+import AuthHeader from "../components/AuthHeader";
+import { OTPInput } from "../components/OTPInput";
 import { Button } from "../../../components/ui/Button";
 
 // Minimum validation schema
@@ -60,7 +60,7 @@ const OTPVerification: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-primary">
-      <AuthHeader/>
+      <AuthHeader />
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center px-4 mt-8">
         {/* Info Box */}
@@ -71,9 +71,7 @@ const OTPVerification: React.FC = () => {
           <p className="text-B6 text-primary">{phoneNumber}</p>
         </div>
 
-        <h3 className="text-secondary text-R7 mb-4">
-          Enter six-digit code
-        </h3>
+        <h3 className="text-secondary text-R7 mb-4">Enter six-digit code</h3>
 
         <form
           onSubmit={handleSubmit(onSubmit)}

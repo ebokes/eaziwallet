@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRightSLine } from "../../ui/icons/Icons";
+import { ArrowRightSLine } from "../../../../components/ui/icons/Icons";
 
 export interface Contact {
   id: string;

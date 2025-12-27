@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #root {
   /* max-width: 1200px; */
   /* margin: 0 auto; */
@@ -27,7 +33,10 @@
   }
 
   .dark {
-    --bg-primary: #232323; 
+    /* --bg-primary: #232323;  */
+    --bg-primary: #181739; 
+    /* --bg-primary: #0f194a;  */
+    /* --bg-primary: #141e4f;  */
     --bg-secondary: #2e2e2e; 
     --bg-tertiary: #535d66; 
 

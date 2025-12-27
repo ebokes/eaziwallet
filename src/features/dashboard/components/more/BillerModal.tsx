@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "../../ui/Button";
-import { ResponsiveModal } from "../../ui/ResponsiveModal";
-import { SecurePaymentLine } from "../../ui/icons/Icons";
+import { Button } from "../../../../components/ui/Button";
+import { ResponsiveModal } from "../../../../components/ui/ResponsiveModal";
+import { SecurePaymentLine } from "../../../../components/ui/icons/Icons";
 
 interface Biller {
   id: string;
@@ -61,9 +61,7 @@ export const BillerModal: React.FC<BillerModalProps> = ({
         {/* Due Date */}
         {biller.dueDate && (
           <div className="border border-light  rounded-xl p-4">
-            <span className="text-R6 text-secondary block mb-1">
-              Due date
-            </span>
+            <span className="text-R6 text-secondary block mb-1">Due date</span>
             <span className="text-R5 text-primary">{biller.dueDate}</span>
           </div>
         )}

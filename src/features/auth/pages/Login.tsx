@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Mobile from "../../../assets/auth/mobile-phone.png";
 import Secure from "../../../assets/auth/secure.png";
 import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
-import SocialIcons from "../../../components/auth/SocialIcons";
+import SocialIcons from "../components/SocialIcons";
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
 import { PhoneInput } from "../../../components/ui/PhoneInput";
@@ -91,12 +91,11 @@ const Login: React.FC = () => {
     clearErrorsForgot();
   };
   return (
-    <div className="flex flex-col md:flex-row items-center w-full justify-center h-screen overflow-hidden">
-      <div className="bg-lavender/70 w-full md:w-1/2 h-1/2 md:h-full grid place-items-center">
-        <div className="w-full md:hidden ml-4 gap-2 mt-2 text-celtic-blue font-medium">
-        </div>
+    <div className="flex flex-col md:flex-row items-center w-full justify-center md:h-screen overflow-hidden">
+      <div className="bg-mangolia w-full md:w-1/2 h-[35%] md:h-full md:grid md:place-items-center">
+        <div className="w-full md:hidden ml-4 gap-2 mt-2 text-celtic-blue font-medium"></div>
         <div className="flex flex-col items-center">
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center my-4">
             <img
               src={TapNPayLogo}
               alt="TapNPay Logo"
@@ -107,18 +106,18 @@ const Login: React.FC = () => {
             <img
               src={Secure}
               alt="shield"
-              className="w-[200px] md:w-[300px] "
+              className="w-[150px] md:w-[300px] my-5 "
             />
           ) : (
             <img
               src={Mobile}
               alt="Mobile"
-              className="w-[200px] md:w-[300px] lg:w-[400px]"
+              className="w-[200px] md:w-[300px] lg:w-[400px] my-5"
             />
           )}
         </div>
       </div>
-      <div className="flex justify-center w-full md:w-1/2 h-1/2 md:h-auto m-8">
+      <div className="flex justify-center w-full md:w-1/2 h-[65%] md:h-auto m-8">
         <div className="w-full mx-4 md:mx-10 max-w-[600px]">
           {step === "password" ? (
             <h1 className="text-S3 mb-6">Enter your password</h1>

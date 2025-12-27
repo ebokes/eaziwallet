@@ -1,8 +1,8 @@
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import { AddCardModal } from "../../../../components/dashboard/card/AddCardModal";
-import { CreditCard } from "../../../../components/dashboard/card/CreditCard";
-import { INITIAL_CARDS, type Card } from "../../../../lib/constants";
+import { AddCardModal } from "../../components/card/AddCardModal";
+import { CreditCard } from "../../components/card/CreditCard";
+import { INITIAL_CARDS, type Card } from "../../lib/constants";
 import { QrCodeLine, RssLine } from "../../../../components/ui/icons/Icons";
 import { Button } from "../../../../components/ui/Button";
 import BackBtn from "../../../../components/ui/BackBtn";

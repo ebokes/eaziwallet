@@ -2,14 +2,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import SocialIcons from "../../../components/auth/SocialIcons";
+import SocialIcons from "../components/SocialIcons";
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
 import { CheckSquare, Square } from "lucide-react";
 import TapNPayLogo from "../../../assets/auth/tap-n-pay-violet.webp";
 import { signUpSchema, type SignUpSchema } from "../schemas/signUpSchema";
 import BackBtn from "../../../components/ui/BackBtn";
-import PasswordStrength from "../../../components/auth/PasswordStrength";
+import PasswordStrength from "../components/PasswordStrength";
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
