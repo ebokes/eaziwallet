@@ -86,11 +86,29 @@ EaziWallet is a premium fintech application built for seamless financial managem
 
 ## 🧠 Design Decisions & Trade-offs
 
-- **Architecture**: Used a feature-based folder structure (`src/features/...`) to ensure scalability and separation of concerns.
+- **Architecture**: Utilizes a strictly component-based architecture for maximum modularity and reusability. Each component is self-contained, with logic, and tests colocated within its file or folder.
 - **Mobile-First Layout**: Given the nature of fintech apps, I prioritized a mobile experience. The navigation switches from a Bottom Nav (mobile) to a Sidebar (desktop).
 - **Client-Side Validation**: Implemented Zod schemas for immediate feedback, reducing server load and improving user experience.
 - **Lazy Loading**: All main routes are lazy-loaded to optimize the critical rendering path and reduce initial load times.
+- **Test Strategy**: Employs a **colocation strategy** where test files (`.test.tsx`, `.test.ts`) are placed directly next to the source files they verify, ensuring high visibility and easier maintenance.
 - **Trade-off - Component Library**: Opted for custom components over a heavy library like MUI to maintain strict adherence to the premium design system and keep the bundle size low.
+
+## 📂 Architecture & Folder Structure
+
+```text
+src/
+├── components/      # Shared UI blocks
+│   ├── auth/        # Authentication-specific components
+│   ├── common/      # Reusable primitives (Button, Input, etc.)
+│   └── dashboard/   # Dashboard-related UI elements
+├── pages/           # Page-level components organized by feature
+├── routes/          # Centralized routing configuration
+├── hooks/           # Custom React hooks (e.g., useCopy)
+├── schemas/         # Zod validation schemas
+├── assets/          # Global images and design tokens
+├── constants/       # Global constants and mock data
+└── utils/           # Shared utility functions
+```
 
 ## 🔄 Porting to Another Framework
 
