@@ -2,6 +2,8 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Sidebar } from "../dashboard/Sidebar";
 import { BottomNav } from "../dashboard/BottomNav";
+import Loading from "../common/Loading";
+
 import { useUi } from "../../context/UiContext";
 
 export const Layout: React.FC = () => {
@@ -21,7 +23,9 @@ export const Layout: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto md:p-8">
-          <Outlet />
+          <React.Suspense fallback={<Loading />}>
+            <Outlet />
+          </React.Suspense>
         </div>
       </main>
       {shouldShowNav && !isModalActive && <BottomNav />}

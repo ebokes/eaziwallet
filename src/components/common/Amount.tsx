@@ -1,7 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import type { Transaction } from "../../constants/constants";
 
-
 const Amount = ({ t }: { t: Transaction }) => {
   return (
     <div className="flex items-center gap-2">

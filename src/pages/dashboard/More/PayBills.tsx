@@ -1,8 +1,15 @@
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BillerItem, type Biller } from "../../../components/dashboard/more/BillerItem";
-import { DropLine, LightbulbFlashLine, SignalTowerLine } from "../../../components/common/icons/Icons";
+import {
+  BillerItem,
+  type Biller,
+} from "../../../components/dashboard/more/BillerItem";
+import {
+  DropLine,
+  LightbulbFlashLine,
+  SignalTowerLine,
+} from "../../../components/common/icons/Icons";
 import BackBtn from "../../../components/common/BackBtn";
 import { SearchBar } from "../../../components/common/SearchBar";
 import { BillerModal } from "../../../components/dashboard/more/BillerModal";

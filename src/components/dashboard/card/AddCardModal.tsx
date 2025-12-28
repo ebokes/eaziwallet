@@ -7,7 +7,10 @@ import { Button } from "../../common/Button";
 import { Input } from "../../common/Input";
 import { ResponsiveModal } from "../../common/ResponsiveModal";
 import type { Card } from "../../../constants/constants";
-import { addCardSchema, type AddCardSchema } from "../../../schemas/dashboard/addCardSchema";
+import {
+  addCardSchema,
+  type AddCardSchema,
+} from "../../../schemas/dashboard/addCardSchema";
 
 interface AddCardModalProps {
   isOpen: boolean;

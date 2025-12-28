@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import ahmed from "../../../assets/dashboard/ahmed.png";
 import ali from "../../../assets/dashboard/ali.png";
 import steve from "../../../assets/dashboard/steve.png";
-import { ContactItem, type Contact } from "../../../components/dashboard/more/ContactItem";
+import {
+  ContactItem,
+  type Contact,
+} from "../../../components/dashboard/more/ContactItem";
 import BackBtn from "../../../components/common/BackBtn";
 import { SearchBar } from "../../../components/common/SearchBar";
-
 
 const CONTACTS: Contact[] = [
   {

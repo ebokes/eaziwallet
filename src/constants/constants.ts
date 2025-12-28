@@ -16,7 +16,6 @@ export interface Card {
   img?: string | undefined;
 }
 
-
 export interface Transaction {
   id: string;
   type: "sent" | "received";
@@ -145,4 +144,3 @@ export const INITIAL_CARDS: Card[] = [
     img: card1,
   },
 ];
-
