@@ -1,3 +1,5 @@
+https://eaziwallet.netlify.app
+
 # EaziWallet - Modern Fintech Application
 
 EaziWallet is a premium fintech application built for seamless financial management. It provides users with a comprehensive dashboard, transaction history, card management, and advanced spending analytics.
