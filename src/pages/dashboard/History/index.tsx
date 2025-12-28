@@ -1,7 +1,8 @@
-import { SlidersHorizontal } from "lucide-react";
-import { useMemo, useState } from "react";
+import { SlidersHorizontal, ChevronDown } from "lucide-react";
+import { useMemo, useState, useRef, useEffect } from "react";
 import { TransactionList } from "../../../components/dashboard/home/TransactionList";
 import { SearchBar } from "../../../components/common/SearchBar";
+import { motion, AnimatePresence } from "framer-motion";
 import { useModal } from "../../../hooks/useModal";
 import {
   MOCK_TRANSACTIONS,
@@ -15,6 +16,18 @@ const History = () => {
   const [filterType, setFilterType] = useState<"all" | "sent" | "received">(
     "all"
   );
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const { openModal, setOpenModal, handleModalClose } = useModal();
   const [selectedTransaction, setSelectedTransaction] =
@@ -38,31 +51,73 @@ const History = () => {
     setOpenModal(true);
   };
 
+  const filterOptions = [
+    { value: "all", label: "All Transactions" },
+    { value: "sent", label: "Money Sent" },
+    { value: "received", label: "Money Received" },
+  ];
+
   return (
     <div className="">
       <h1 className="text-B2 mt-4 mx-4">History</h1>
-      <div className="flex gap-4 mx-4 my-5 bg-primary">
+      <div className="flex items-center justify-between gap-4 mx-4 my-5 bg-primary">
         <SearchBar
           placeholder="Search by name or amount"
           className="flex-1"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <div className="relative max-w-[200px]">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-primary pointer-events-none">
-            <SlidersHorizontal size={20} />
-          </div>
-          <select
-            value={filterType}
-            onChange={(e) =>
-              setFilterType(e.target.value as "all" | "sent" | "received")
-            }
-            className="appearance-none pl-10 pr-8 py-3 text-base rounded-md font-semibold transition-all duration-200 focus:outline-none cursor-pointer border border-soft text-primary hover:bg-secondary bg-primary"
+
+        {/* Custom Dropdown Menu (Chakra UI style) */}
+        <div className="relative" ref={menuRef}>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex items-center gap-2 px-4 py-2.5 text-S6 rounded-md font-semibold border-2 border-soft text-primary hover:border-majorelle-blue/30 hover:bg-majorelle-blue/5 bg-primary shadow-sm transition-all duration-200 active:scale-95 whitespace-nowrap"
           >
-            <option value="all">Filter: All</option>
-            <option value="sent">Filter: Sent</option>
-            <option value="received">Filter: Received</option>
-          </select>
+            <SlidersHorizontal size={16} className="text-majorelle-blue" />
+            <span>
+              {filterType === "all"
+                ? "All"
+                : filterType.charAt(0).toUpperCase() + filterType.slice(1)}
+            </span>
+            <ChevronDown
+              size={16}
+              className={`text-slate-gray transition-transform duration-200 ${
+                isMenuOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                transition={{ duration: 0.1, ease: "easeOut" }}
+                className="absolute right-0 mt-2 w-52 bg-primary border border-soft rounded-lg shadow-elevation-low z-50 overflow-hidden"
+              >
+                <div className="py-1">
+                  {filterOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() => {
+                        setFilterType(option.value as any);
+                        setIsMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-3 text-S6 transition-colors ${
+                        filterType === option.value
+                          ? "text-majorelle-blue bg-majorelle-blue/10 font-bold"
+                          : "text-primary hover:bg-secondary"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 

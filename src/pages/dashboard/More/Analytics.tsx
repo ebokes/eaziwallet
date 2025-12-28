@@ -11,8 +11,8 @@ import {
   PieChart,
   Pie,
 } from "recharts";
-import BackBtn from "../../components/common/BackBtn";
-import { formatCurrency } from "../../utils/utils";
+import BackBtn from "../../../components/common/BackBtn";
+import { formatCurrency } from "../../../utils/utils";
 
 const SPENDING_DATA = [
   { day: "Mon", amount: 450, color: "#6F45E9" },
@@ -42,13 +42,17 @@ const Analytics: React.FC = () => {
       <div className="px-6 mt-8 flex flex-col gap-8">
         {/* Summary Cards */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-mangolia p-4 rounded-2xl border border-lavender">
+          <div className="bg-mangolia dark:bg-silver-sand p-4 rounded-2xl border border-lavender">
             <p className="text-R7 text-ocean-blue mb-1">Total Income</p>
             <p className="text-B5 text-indigo">{formatCurrency(12450.0)}</p>
           </div>
           <div className="bg-pale-pink/30 p-4 rounded-2xl border border-pale-pink">
-            <p className="text-R7 text-jelly-bean mb-1">Total Expenses</p>
-            <p className="text-B5 text-maroon">{formatCurrency(3540.0)}</p>
+            <p className="text-R7 text-jelly-bean dark:text-pale-pink  mb-1">
+              Total Expenses
+            </p>
+            <p className="text-B5 text-maroon dark:text-bright-gray">
+              {formatCurrency(3540.0)}
+            </p>
           </div>
         </div>
 
