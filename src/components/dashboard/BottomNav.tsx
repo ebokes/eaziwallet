@@ -14,11 +14,15 @@ export const BottomNav: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-primary border-t border-soft px-6 pt-1 flex justify-between items-end z-50 md:hidden">
+    <nav
+      className="fixed bottom-0 left-0 right-0 bg-primary border-t border-soft px-6 pt-1 flex justify-between items-end z-50 md:hidden"
+      aria-label="Mobile Bottom Navigation"
+    >
       {navItems.map((item) => (
         <NavLink
           key={item.label}
           to={item.path}
+          aria-label={item.label}
           className={({ isActive }) => `
             relative flex flex-col items-center gap-1 transition-all duration-300 w-16
             ${isActive ? "text-majorelle-blue -mt-1" : "text-primary"}
@@ -28,10 +32,13 @@ export const BottomNav: React.FC = () => {
             <>
               {/* Active Indicator Line */}
               {isActive && (
-                <span className="absolute -top-[6px] w-full h-[3px] bg-majorelle-blue rounded-b-sm" />
+                <span
+                  className="absolute -top-[6px] w-full h-[3px] bg-majorelle-blue rounded-b-sm"
+                  aria-hidden="true"
+                />
               )}
 
-              <div className="mt-2">
+              <div className="mt-2" aria-hidden="true">
                 {isActive ? item.iconData.active : item.iconData.inactive}
               </div>
               <span
@@ -45,16 +52,21 @@ export const BottomNav: React.FC = () => {
           )}
         </NavLink>
       ))}
-      <div className="cursor-pointer space-y-[6px] mt-[1px] px-4 flex flex-col items-center">
-        {theme === "dark" ? (
-          <Sun size={20} onClick={toggleTheme} />
-        ) : (
-          <Moon size={20} onClick={toggleTheme} />
-        )}
+      <div
+        className="cursor-pointer space-y-[6px] mt-[1px] px-4 flex flex-col items-center"
+        role="button"
+        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+        tabIndex={0}
+        onClick={toggleTheme}
+        onKeyDown={(e) => e.key === "Enter" && toggleTheme()}
+      >
+        <div aria-hidden="true">
+          {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+        </div>
         <p className="text-[10px] font-medium">
           {theme === "dark" ? "Light" : "Dark"}
         </p>
       </div>
-    </div>
+    </nav>
   );
 };

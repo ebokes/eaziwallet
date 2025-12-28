@@ -23,19 +23,23 @@ export const Sidebar: React.FC = () => {
     <div className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 p-6 shadow-elevation-card z-50">
       <div className="mb-10 flex justify-between items-center gap-3">
         <h1 className="text-xl font-bold text-primary">Eazi Wallet</h1>
-        <div className="cursor-pointer">
-          {theme === "dark" ? (
-            <Sun size={20} onClick={toggleTheme} />
-          ) : (
-            <Moon size={20} onClick={toggleTheme} />
-          )}
+        <div
+          className="cursor-pointer"
+          role="button"
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          tabIndex={0}
+          onClick={toggleTheme}
+          onKeyDown={(e) => e.key === "Enter" && toggleTheme()}
+        >
+          {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
         </div>
       </div>
-      <nav className="flex-1 space-y-2">
+      <nav className="flex-1 space-y-2" aria-label="Main Sidebar Navigation">
         {navItems.map((item) => (
           <NavLink
             key={item.label}
             to={item.path}
+            aria-label={item.label}
             className={({ isActive }) => `
               flex items-center gap-3 px-4 py-3 rounded-md transition-all duration-200 group 
               ${
@@ -47,7 +51,10 @@ export const Sidebar: React.FC = () => {
           >
             {({ isActive }) => (
               <>
-                <div className="w-6 h-6 flex justify-center items-center">
+                <div
+                  className="w-6 h-6 flex justify-center items-center"
+                  aria-hidden="true"
+                >
                   {isActive ? item.iconData.active : item.iconData.inactive}
                 </div>
                 <span className="font-medium">{item.label}</span>
@@ -60,9 +67,10 @@ export const Sidebar: React.FC = () => {
       <div className="pt-6">
         <button
           onClick={handleLogout}
+          aria-label="Logout"
           className="flex items-center gap-3 px-4 py-3 text-jelly-bean rounded-xl w-full transition-colors"
         >
-          <LogOut size={20} />
+          <LogOut size={20} aria-hidden="true" />
           <span className="font-medium">Logout</span>
         </button>
       </div>

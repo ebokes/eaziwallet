@@ -13,6 +13,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   ...props
 }) => {
   return (
-    <Input type="text" leftIcon={leftIcon} className={className} {...props} />
+    <div role="search">
+      <Input
+        type="text"
+        leftIcon={leftIcon}
+        className={className}
+        aria-label="Search"
+        {...props}
+      />
+    </div>
   );
 };

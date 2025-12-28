@@ -68,6 +68,8 @@ export const Button: React.FC<ButtonProps> = ({
         ${disabled || isLoading ? "pointer-events-none opacity-50" : ""}
         ${className}
       `}
+      aria-busy={isLoading}
+      aria-label={props["aria-label"]}
     >
       {isLoading && <Loader2 className="w-5 h-5 mr-2 animate-spin" />}
       {!isLoading && leftIcon && <span className="mr-2">{leftIcon}</span>}
@@ -85,6 +87,7 @@ export const Button: React.FC<ButtonProps> = ({
         ${className}
       `}
       disabled={disabled || isLoading}
+      aria-busy={isLoading}
       {...props}
     >
       {isLoading && <Loader2 className="w-5 h-5 mr-2 animate-spin" />}
