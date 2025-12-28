@@ -6,17 +6,43 @@ import { INITIAL_CARDS, type Card } from "../../../constants/constants";
 import { QrCodeLine, RssLine } from "../../../components/common/icons/Icons";
 import { Button } from "../../../components/common/Button";
 import BackBtn from "../../../components/common/BackBtn";
+import { motion, AnimatePresence } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 } as const,
+  },
+};
 
 const DetailView: React.FC<{ card: Card }> = ({ card }) => (
-  <div className="animate-fade-in flex flex-col items-center w-full max-w-2xl mx-auto h-full">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    className="flex flex-col items-center w-full max-w-2xl mx-auto h-full"
+  >
     <div className="w-full max-w-md flex justify-center mb-8 md:mb-12">
       <CreditCard {...card} img={card.img} />
     </div>
 
     <div className="flex-1 md:flex-none flex flex-col items-center justify-center mb-8 md:mb-12">
-      <div className="mb-4 text-secondary animate-pulse">
+      <motion.div
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        className="mb-4 text-secondary"
+      >
         <RssLine />
-      </div>
+      </motion.div>
       <p className="text-R5 text-secondary text-center">
         Move near a device to pay
       </p>
@@ -30,7 +56,7 @@ const DetailView: React.FC<{ card: Card }> = ({ card }) => (
         <QrCodeLine /> QR Pay
       </Button>
     </div>
-  </div>
+  </motion.div>
 );
 
 // Mock Data
@@ -72,47 +98,63 @@ export const Cards: React.FC = () => {
 
       {/* Mobile Views */}
       <div className="md:hidden h-[calc(100vh-200px)] flex flex-col">
-        {selectedCard ? (
-          <DetailView card={selectedCard} />
-        ) : (
-          // Stacked List View
-          <div className="relative h-[400px] flex justify-center pt-4">
-            {cards.map((card, index) => {
-              const offset = index * 60; // Increased vertical offset
-              return (
-                <div
-                  key={card.id}
-                  className="absolute w-full max-w-[340px] transition-transform duration-300 hover:-translate-y-2 cursor-pointer"
-                  style={{
-                    top: `${offset}px`,
-                    zIndex: index,
-                  }}
-                  onClick={() => handleCardClick(card)}
-                >
-                  <CreditCard
-                    {...card}
-                    img={card.img}
-                    className="shadow-[0_-5px_20px_rgba(0,0,0,0.1)]"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        )}
+        <AnimatePresence mode="wait">
+          {selectedCard ? (
+            <DetailView key="detail" card={selectedCard} />
+          ) : (
+            // Stacked List View
+            <motion.div
+              key="list"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="relative h-[400px] flex justify-center pt-4"
+            >
+              {cards.map((card, index) => {
+                const offset = index * 60; // Increased vertical offset
+                return (
+                  <motion.div
+                    key={card.id}
+                    variants={cardVariants}
+                    className="absolute w-full max-w-[340px] cursor-pointer"
+                    style={{
+                      top: `${offset}px`,
+                      zIndex: index,
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleCardClick(card)}
+                  >
+                    <CreditCard
+                      {...card}
+                      img={card.img}
+                      className="shadow-[0_-5px_20px_rgba(0,0,0,0.1)]"
+                    />
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Desktop Views */}
       <div className="hidden md:block">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            {cards.map((card) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {cards.map((card) => (
+            <motion.div key={card.id} variants={cardVariants}>
               <CreditCard
-                key={card.id}
                 {...card}
                 img={card.img}
                 className="hover:shadow-2xl transition-shadow duration-300"
               />
-            ))}
-          </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
       <AddCardModal

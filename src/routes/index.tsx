@@ -1,8 +1,14 @@
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import { Layout } from "../components/layout";
 import Loading from "../components/common/Loading";
-// import splash from "../features/auth/pages/Splash"
+import { AnimatePresence, motion } from "framer-motion";
 
 const Splash = lazy(() => import("../pages/auth/Splash"));
 const Login = lazy(() => import("../pages/auth/Login"));
@@ -30,39 +36,88 @@ const TransferFailed = lazy(
   () => import("../pages/dashboard/More/TransferFailed")
 );
 
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname.split("/")[1] || "/"}>
+        {/* Public routes */}
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <Splash />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PageWrapper>
+              <Login />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/sign-up"
+          element={
+            <PageWrapper>
+              <SignUp />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/verify-otp"
+          element={
+            <PageWrapper>
+              <OTP />
+            </PageWrapper>
+          }
+        />
+
+        {/* Protected routes wrapped in Layout */}
+        <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/cards" element={<Cards />} />
+          <Route path="/more" element={<More />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/pay-bills" element={<PayBills />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/transfer-amount" element={<TransferAmount />} />
+          <Route
+            path="/transfer-confirmation"
+            element={<TransferConfirmation />}
+          />
+          <Route path="/transfer-failed" element={<TransferFailed />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+const PageWrapper = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -20 }}
+    transition={{ duration: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
-        <Routes>
-          {/* Public routes */}
-          <Route path="/" element={<Splash />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/verify-otp" element={<OTP />} />
-          {/* Protected routes */}
-          <Route element={<Layout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/cards" element={<Cards />} />
-            <Route path="/more" element={<More />} />
-            <Route path="/analytics" element={<Analytics />} />
-
-            {/* Sub-pages without bottom nav (Handled by Layout logic) */}
-            <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/pay-bills" element={<PayBills />} />
-            <Route path="/payment-success" element={<PaymentSuccess />} />
-            <Route path="/transfer" element={<Transfer />} />
-            <Route path="/transfer-amount" element={<TransferAmount />} />
-            <Route
-              path="/transfer-confirmation"
-              element={<TransferConfirmation />}
-            />
-            <Route path="/transfer-failed" element={<TransferFailed />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <AnimatedRoutes />
       </Suspense>
     </BrowserRouter>
   );

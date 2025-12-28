@@ -29,7 +29,6 @@ export const Layout: React.FC = () => {
         </div>
       </main>
       {shouldShowNav && !isModalActive && <BottomNav />}
-      {/* <div className="h-[60px] bg-primary"></div> */}
     </div>
   );
 };
