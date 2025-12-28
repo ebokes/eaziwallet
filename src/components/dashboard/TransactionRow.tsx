@@ -15,7 +15,7 @@ export const TransactionRow: React.FC<TransactionRowProps> = ({
   return (
     <div
       onClick={() => onClick(transaction)}
-      className="flex items-center justify-between py-4 hover:bg-primary transition-colors cursor-pointer border-b border-light last:border-0"
+      className="flex items-center justify-between py-4 hover:bg-secondary px-2 transition-colors cursor-pointer border-b border-light last:border-0"
     >
       <TransactionItem transaction={transaction} />
       <div className="flex items-center gap-1">

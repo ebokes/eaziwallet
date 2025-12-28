@@ -92,7 +92,6 @@ export const Cards: React.FC = () => {
                   <CreditCard
                     {...card}
                     img={card.img}
-                    // variant={card.variant}
                     className="shadow-[0_-5px_20px_rgba(0,0,0,0.1)]"
                   />
                 </div>
@@ -104,9 +103,6 @@ export const Cards: React.FC = () => {
 
       {/* Desktop Views */}
       <div className="hidden md:block">
-        {selectedCard ? (
-          <DetailView card={selectedCard} />
-        ) : (
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
             {cards.map((card) => (
               <CreditCard
@@ -114,11 +110,9 @@ export const Cards: React.FC = () => {
                 {...card}
                 img={card.img}
                 className="hover:shadow-2xl transition-shadow duration-300"
-                onClick={() => handleCardClick(card)}
               />
             ))}
           </div>
-        )}
       </div>
 
       <AddCardModal

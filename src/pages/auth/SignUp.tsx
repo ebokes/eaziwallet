@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialIcons from "../../components/auth/SocialIcons";
 import { Button } from "../../components/common/Button";
 import { Input } from "../../components/common/Input";
@@ -129,9 +129,17 @@ const Register: React.FC = () => {
           >
             Create a new account
           </Button>
-
-          <SocialIcons />
         </form>
+        <SocialIcons />
+        <div className="text-center text-sm mt-7">
+          <span className="text-secondary">Don't have an account? </span>
+          <Link
+            to="/login"
+            className="font-bold text-celtic-blue hover:underline"
+          >
+            Login
+          </Link>
+        </div>
       </div>
     </div>
   );
