@@ -1,73 +1,122 @@
-# React + TypeScript + Vite
+# EaziWallet - Modern Fintech Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EaziWallet is a premium fintech application built for seamless financial management. It provides users with a comprehensive dashboard, transaction history, card management, and advanced spending analytics.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Intuitive Dashboard**: Real-time balance overview with quick actions for top-up, withdrawal, and transfers.
+- **Advanced Spending Analytics**: Interactive bar and pie charts to visualize weekly spending and category breakdowns.
+- **Transaction History**: Fully searchable and groupable transaction list with date-based categorization (Today, Yesterday, Older).
+- **Secure Authentication**: Complete auth flow including Sign Up, Login, and OTP verification with robust validation.
+- **Card Management**: Easily view and manage wallet cards with detailed information.
+- **Responsive Design**: A mobile-first approach that scales beautifully to tablet and desktop views.
+- **Dark Mode Support**: Built with theme awareness for comfortable use in any lighting.
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Login
 
-## Expanding the ESLint configuration
+![Login](https://drive.google.com/file/d/1r5V2QYRgE60eWNDzUrJBj3xznEruNSA2/view?usp=drive_link)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Dashboard
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![Dashboard](https://drive.google.com/file/d/1gC7Owr5gRVEzfMplbyE8GUSWAhD9Thgr/view?usp=drive_link)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### History
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![History](https://drive.google.com/file/d/1ha3zoLmxxoXgHzP8zcwlfGBYWBkX4_a7/view?usp=drive_link)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Cards
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+![Cards](https://drive.google.com/file/d/15OXJ13Ldq6ADCjMDyCE6zzNrH_JTuZxI/view?usp=drive_link)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Spending Analytics
+
+![Analytics](https://drive.google.com/file/d/14WCnbl7hMGnADOZWwRpowkLcJfSUe3KH/view?usp=drive_link)
+
+## 🛠️ Technical Stack
+
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Data Visualization**: [Recharts](https://recharts.org/)
+- **State & Form Management**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+- **Testing**: [Vitest](https://vitest.dev/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- **Icons**: [Lucide React](https://lucide.dev/) & remixicon
+
+## ⚙️ Setup and Installation
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
+
+### Steps
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone <repository-url>
+   cd eaziwallet-v1
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**:
+
+   ```bash
+   npm run build
+   ```
+
+5. **Run tests**:
+   ```bash
+   npm test
+   ```
+
+## 🧠 Design Decisions & Trade-offs
+
+- **Architecture**: Used a feature-based folder structure (`src/features/...`) to ensure scalability and separation of concerns.
+- **Mobile-First Layout**: Given the nature of fintech apps, I prioritized a mobile experience. The navigation switches from a Bottom Nav (mobile) to a Sidebar (desktop).
+- **Client-Side Validation**: Implemented Zod schemas for immediate feedback, reducing server load and improving user experience.
+- **Lazy Loading**: All main routes are lazy-loaded to optimize the critical rendering path and reduce initial load times.
+- **Trade-off - Component Library**: Opted for custom components over a heavy library like MUI to maintain strict adherence to the premium design system and keep the bundle size low.
+
+## 🔄 Porting to Another Framework
+
+The application logic is heavily decoupled from the UI:
+
+- **State Logic**: Most state management is handled through React hooks. Porting to **Vue** would involve converting these hooks to Composables.
+- **Validation**: Zod is framework-agnostic, so the schemas can be reused 100% in any JavaScript framework.
+- **Routing**: Moving to **Next.js** would involve moving files into the `app/` directory and replacing `react-router-dom` links with `next/link`.
+
+## 🚧 Challenges Faced & Solutions
+
+### 1. Complex Data Transformation for Grouped Lists
+
+**Challenge**: Transforming a flat array of transactions into a grouped object keyed by relative dates (Today, Yesterday, and Older) presented logic hurdles. Initial implementations struggled with inconsistent date formats and timezone offsets.
+**Solution**: I implemented a robust `groupTransactionsByDate` utility that leverages ISO date comparison. By normalizing the "Today" and "Yesterday" references at the start of the function, the logic accurately buckets transactions regardless of the user's local timezone, which is critical for a financial application.
+
+### 2. Synchronizing Layout States with Dynamic Navigation
+
+**Challenge**: The application uses a dual-navigation strategy: a `BottomNav` for mobile and a `Sidebar` for desktop. A major challenge was ensuring that sub-pages (like Transfer or Analytics) correctly hid these global navigation elements to maximize screen real estate, without breaking the nested route structure.
+**Solution**: I implemented a centralized `Layout` component that monitors the current `location.pathname` against a `SHOW_NAV_PATHS` configuration. Combined with a custom `UiContext`, this allows the application to dynamically adjust layout padding and visibility of nav elements based on the depth of the user's navigation stack.
+
+### 3. Integrating Zod Schemas with Custom Form Controls
+
+**Challenge**: Binding custom UI components like the `PhoneInput` and a "Terms & Conditions" checkbox to `react-hook-form` while using strict Zod literals (e.g., `z.literal(true)`) was tricky. Simple boolean toggles often failed validation because they were passing values that technically met type requirements but failed the literal logic of the schema.
+**Solution**: I refined the component interfaces to pass value events that strictly match the Zod schema's expectations. I also adjusted the form validation mode to `onSubmit` for better UX, ensuring that users aren't bombarded with error messages until they've actually attempted to proceed.
+
+---
+
+Developed with ❤️ by Chibuokem Egbuchulam.
