@@ -14,27 +14,32 @@ EaziWallet is a premium fintech application built for seamless financial managem
 - **Responsive Design**: A mobile-first approach that scales beautifully to tablet and desktop views.
 - **Dark Mode Support**: Built with theme awareness for comfortable use in any lighting.
 
+
 ## 📸 Screenshots
 
 ### Login
 
-![Login](https://drive.google.com/file/d/1r5V2QYRgE60eWNDzUrJBj3xznEruNSA2/view?usp=drive_link)
+![Dashboard](https://github.com/user-attachments/assets/fbe09bd2-939d-4574-984e-b3caefa20417)
+
 
 ### Dashboard
 
-![Dashboard](https://drive.google.com/file/d/1gC7Owr5gRVEzfMplbyE8GUSWAhD9Thgr/view?usp=drive_link)
+![Dashboard](https://github.com/user-attachments/assets/90de39fd-7adc-4011-907b-6fbfa4fe2e27)
+
 
 ### History
 
-![History](https://drive.google.com/file/d/1ha3zoLmxxoXgHzP8zcwlfGBYWBkX4_a7/view?usp=drive_link)
+![History](https://github.com/user-attachments/assets/2431e57b-c371-4a77-a260-bc03f564f5aa)
+
 
 ### Cards
 
-![Cards](https://drive.google.com/file/d/15OXJ13Ldq6ADCjMDyCE6zzNrH_JTuZxI/view?usp=drive_link)
+![Cards](https://github.com/user-attachments/assets/555b00f9-bb9f-4535-8ee7-855bd62f6875)
 
 ### Spending Analytics
 
-![Analytics](https://drive.google.com/file/d/14WCnbl7hMGnADOZWwRpowkLcJfSUe3KH/view?usp=drive_link)
+![Analytics](https://github.com/user-attachments/assets/1d2ad4c1-cc88-4970-a5f7-7255d92d8ef8)
+
 
 ## 🛠️ Technical Stack
 
